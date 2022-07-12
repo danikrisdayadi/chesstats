@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import path from 'path';
 import logger from 'morgan';
-import { testRoute } from '../routes/testRoute.js';
+import router from './route.js';
 
 const __dirname = path.resolve();
 
@@ -14,9 +14,9 @@ app.use(logger('dev'));
 app.use(express.json({ limit: '5mb' }));
 
 // Declare Routes
-app.use('/', testRoute);
+app.use('/match', router);
 
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server has successfully run at port ${process.env.PORT || 3000}`)
+app.listen(process.env.PORT || 5000, () => {
+    console.log(`Server has successfully run at port ${process.env.PORT || 5000}`)
 });
