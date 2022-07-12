@@ -5,12 +5,19 @@ export async function getStats(req, res) {
     const user1 = req.params.username1;
     const user2 = req.params.username2;
 
-    // fetch stats for both player
+    const user1Data = await getChessData(user1);
+    const user2Data = await getChessData(user2);
+
+    const response = {
+      user1Data,
+      user2Data
+    };
+
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
-    res.json("Successful request!");
+    res.json(response);
   } catch (err) {
-    res.statusCode = 404;
+    res.statusCode = 500;
     res.send(err);
   }
 
@@ -19,6 +26,7 @@ export async function getStats(req, res) {
 async function getChessData(username) {
   try {
     const response = await fetch(`https://api.chess.com/pub/player/${username}/stats`);
+    return await response.json();
   } catch (error) {
     return error;
   }
