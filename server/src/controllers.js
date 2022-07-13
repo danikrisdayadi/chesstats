@@ -1,16 +1,17 @@
 import fetch from 'node-fetch';
+import * as utils from "./utils.js";
 
 export async function getStats(req, res) {
   try {
     const user1 = req.params.username1;
     const user2 = req.params.username2;
 
-    const user1Data = await getChessData(user1);
-    const user2Data = await getChessData(user2);
+    const primaryUserData = await getChessData(user1);
+    const secondaryUserData = await getChessData(user2);
 
     const response = {
-      user1Data,
-      user2Data
+      primaryUser: utils.formatUserData(primaryUserData),
+      secondaryUser: utils.formatUserData(secondaryUserData)
     };
 
     res.statusCode = 200;
