@@ -1,7 +1,12 @@
-import './LandingPage.scss';
+import "./LandingPage.scss";
+import { Container } from "@mui/material";
 
 function LandingPage() {
-  return <h1 className="inverse">Welcome to Chesstats!</h1>;
+  return (
+    <Container maxWidth="xl">
+      <h1>Welcome to chesstats</h1>
+    </Container>
+  );
 }
 
 export default LandingPage;
