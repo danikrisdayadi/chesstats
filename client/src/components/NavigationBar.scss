@@ -8,6 +8,7 @@ $navbar-vh: 8vh;
 
 .navigation-bar {
   height: clamp($min-navbar-height, $navbar-vh, $max-navbar-height);
+  background-color: transparent;
 }
 
 .logo {
