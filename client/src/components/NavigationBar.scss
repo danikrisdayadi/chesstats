@@ -14,3 +14,7 @@ $navbar-vh: 8vh;
 .logo {
   height: clamp($min-navbar-height - 20px, 5vh, $max-navbar-height - 20px);
 }
+
+.text {
+  margin-left: 20px;
+}
