@@ -1,15 +1,16 @@
-$min-navbar-height: 30px;
+$min-navbar-height: 50px;
+$max-navbar-height: 75px;
 
 .navigation-box {
   min-height: 8vh;
 }
 
 .navigation-bar {
+  height: clamp($min-navbar-height, 8vh, $max-navbar-height);
   min-height: $min-navbar-height;
   height: 8vh;
 }
 
 .logo {
-  height: 5vh;
-  max-height: 100%;
+  height: clamp($min-navbar-height - 20px, 5vh, $max-navbar-height);
 }
