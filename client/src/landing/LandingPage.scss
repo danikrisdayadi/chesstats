@@ -1,6 +1,5 @@
-@use "../base";
+@use "../styles/colors";
 
-.inverse {
-  background-color: base.$primary-color;
-  color: white;
+.title {
+  color: colors.$title;
 }

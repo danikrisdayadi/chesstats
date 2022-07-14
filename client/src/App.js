@@ -1,10 +1,15 @@
+import * as React from 'react';
 import LandingPage from './landing/LandingPage';
-import './App.css';
+import NavigationBar from './components/NavigationBar';
+import { StyledEngineProvider } from '@mui/material/styles';
 
 function App() {
   return (
-    <div className="App">
-      <LandingPage />
+    <div>
+      <StyledEngineProvider injectFirst>
+        <NavigationBar />
+        <LandingPage />
+      </StyledEngineProvider>
     </div>
   );
 }

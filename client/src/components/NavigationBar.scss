@@ -1,0 +1,15 @@
+$min-navbar-height: 30px;
+
+.navigation-box {
+  min-height: 8vh;
+}
+
+.navigation-bar {
+  min-height: $min-navbar-height;
+  height: 8vh;
+}
+
+.logo {
+  height: 5vh;
+  max-height: 100%;
+}
