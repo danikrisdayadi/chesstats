@@ -8,7 +8,7 @@ function NavigationBar() {
     <Box className="navigation-box">
       <AppBar position="static" className="navigation-bar">
         <Container maxWidth="xl" className="navigation-bar">
-          <Toolbar style={{ minHeight: "30px", height: "100%" }}>
+          <Toolbar style={{ minHeight: "30px", height: "100%", padding: 0 }}>
             <a href="/">
               <img
                 src="/chesstats_navbar_logo.png"
@@ -18,7 +18,7 @@ function NavigationBar() {
             </a>
             <Container sx={{ flexGrow: 1 }}></Container>
             <a href="/compare">
-              <h3 className="text">Compare</h3>
+              <h3>Compare</h3>
             </a>
             <a href="/about">
               <h3 className="text">About</h3>
