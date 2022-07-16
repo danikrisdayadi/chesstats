@@ -7,6 +7,8 @@ function LandingPage() {
   return (
     <div>
       <Container maxWidth="xl" align="center" className="container">
+        <PaddingY padding={"5vh"} />
+
         <h1>Compare your Chess.com Statistics with others!</h1>
         <Box className="text-box">
           <p>
@@ -15,11 +17,19 @@ function LandingPage() {
             friends or one of our featured accounts!
           </p>
         </Box>
+        <PaddingY padding={"2vh"} />
+
         <Button color="success" variant="outlined" size="large">
           Start Comparing!
         </Button>
+        <PaddingY padding={"5vh"} />
+
         <Divider style={{ width: "50%" }}>or</Divider>
+        <PaddingY padding={"5vh"} />
+
         <p>Compare with one of famous Chess.com users!</p>
+        <PaddingY padding={"2vh"} />
+
         <Container>
           <Grid container>
             {Array.from(Array(4)).map((_, index) => (
@@ -47,6 +57,7 @@ function LandingPage() {
             programming. If you would like to support the website or suggest
             improvements, do let the developers know using the form below!
           </p>
+          <PaddingY padding={"2vh"} />
           <Button variant="outlined" size="large">
             Suggestion Form
           </Button>
