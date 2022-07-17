@@ -6,7 +6,7 @@ import { PaddingY } from "../components/Spacing";
 function LandingPage() {
   return (
     <div>
-      <Container maxWidth="xl" align="center" className="container">
+      <Container maxWidth="xl" align="center" className="main-container">
         <PaddingY padding={"5vh"} />
 
         <h1>Compare your Chess.com Statistics with others!</h1>
