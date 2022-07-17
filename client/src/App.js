@@ -1,9 +1,10 @@
 import * as React from 'react';
+import { StyledEngineProvider } from '@mui/material/styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ComparePage from './pages/ComparePage';
 import LandingPage from './pages/LandingPage';
 import Error404Page from './pages/Error404Page';
 import NavigationBar from './components/NavigationBar';
-import { StyledEngineProvider } from '@mui/material/styles';
 import "./App.scss";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            <Route path="/compare" element={<ComparePage />} />
             <Route path="*" element={<Error404Page />} />
           </Routes>
         </BrowserRouter>
