@@ -1,91 +1,10 @@
 import { Container, Grid, Stack } from "@mui/material";
 import { PaddingY } from "../components/Spacing";
-import { Bar, Radar } from "react-chartjs-2";
 import "./ResultsPage.scss";
+import ResultsRadarChart from "../components/ResultsRadarChart";
+import ResultsBarChart from "../components/ResultsBarChart";
 
 function ResultsPage() {
-  const data = {
-    labels: [
-      "Current Rating",
-      "Highest Rating",
-      "W/L Percentage  ",
-      "Total Games",
-      "Tactics Rating",
-    ],
-    datasets: [
-      {
-        label: "User 1",
-        data: [0.2, 0.9, 0.3, 0.5, 0.2],
-        backgroundColor: "rgba(255, 99, 132, 0.2)",
-        borderColor: "rgba(255, 99, 132, 1)",
-        borderWidth: 1,
-      },
-      {
-        label: "User 2",
-        data: [0.3, 0.2, 0.6, 0.8, 0.7],
-        backgroundColor: "rgba(173, 193, 120, 0.2)",
-        borderColor: "rgba(173, 193, 120, 1)",
-        borderWidth: 1,
-      },
-    ],
-  };
-  const radarOptions = {
-    plugins: {
-      legend: {
-        position: "top",
-      },
-    },
-    scales: {
-      r: {
-        ticks: {
-          color: "rgba(0, 0, 0, 0)",
-          backdropColor: "rgba(0, 0, 0, 0)",
-          maxTicksLimit: 8,
-        },
-        min: 0,
-        max: 1,
-      },
-    },
-  };
-
-  const barOptions = {
-    indexAxis: "y",
-    elements: {
-      bar: {
-        borderWidth: 2,
-      },
-    },
-    scales: {
-      x: {
-        min: -1,
-        max: 1,
-      },
-      y: {
-        stacked: true,
-      },
-    },
-  };
-
-  const barData = {
-    labels: [1, 2],
-    datasets: [
-      {
-        type: "bar",
-        label: "Bar Dataset",
-        data: [-0.1, 0.9],
-        borderColor: "rgb(173, 193, 120)",
-        backgroundColor: "rgba(173, 193, 120, 0.5)",
-      },
-      {
-        type: "bar",
-        label: "Bar Dataset",
-        data: [0.3, -0.5],
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-      },
-    ],
-  };
-
   return (
     <Container>
       <h1>Results Page</h1>
@@ -104,8 +23,19 @@ function ResultsPage() {
           <ProfileStack />
         </Grid>
         <Grid item xs={6} sm={6} md={4}>
-          <Radar data={data} options={radarOptions} />
-          <Bar options={barOptions} data={barData} />;
+          <ResultsRadarChart
+            usernames={["Dani", "Adam"]}
+            stats={[
+              [0.1, 0.2, 0.3, 0.4, 0.5],
+              [0.5, 0.4, 0.3, 0.2, 0.8],
+            ]}
+          />
+          <ResultsBarChart
+            stats={[
+              [0.1, 0.5],
+              [-0.2, -0.3],
+            ]}
+          />
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
           <ProfileStack />
