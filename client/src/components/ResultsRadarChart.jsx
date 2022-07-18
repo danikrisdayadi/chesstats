@@ -1,4 +1,5 @@
 import { Radar } from "react-chartjs-2";
+import * as utils from "../utils/utils";
 
 function ResultsRadarChart({ usernames, stats }) {
   const data = {
@@ -13,15 +14,15 @@ function ResultsRadarChart({ usernames, stats }) {
       {
         label: usernames[0],
         data: stats[0],
-        backgroundColor: "rgba(255, 99, 132, 0.2)",
-        borderColor: "rgba(255, 99, 132, 1)",
+        backgroundColor: utils.chartRedBg,
+        borderColor: utils.chartRed,
         borderWidth: 1,
       },
       {
         label: usernames[1],
         data: stats[1],
-        backgroundColor: "rgba(173, 193, 120, 0.2)",
-        borderColor: "rgba(173, 193, 120, 1)",
+        backgroundColor: utils.chartGreenBg,
+        borderColor: utils.chartGreen,
         borderWidth: 1,
       },
     ],

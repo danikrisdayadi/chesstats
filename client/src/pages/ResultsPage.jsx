@@ -30,12 +30,7 @@ function ResultsPage() {
               [0.5, 0.4, 0.3, 0.2, 0.8],
             ]}
           />
-          <ResultsBarChart
-            stats={[
-              [0.1, 0.5],
-              [-0.2, -0.3],
-            ]}
-          />
+          <ResultsBarChart label="ELO rating" stats={[[0.1], [0.5]]} />
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
           <ProfileStack />

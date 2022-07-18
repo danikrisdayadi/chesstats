@@ -1,39 +1,46 @@
 import { Bar } from "react-chartjs-2";
 import * as utils from "../utils/utils";
 
-function ResultsBarChart({ stats }) {
+function ResultsBarChart({ label, stats }) {
   const barOptions = {
     indexAxis: "y",
     elements: {
       bar: {
-        borderWidth: 2,
+        borderWidth: 1,
       },
     },
     scales: {
       x: {
         min: -1,
         max: 1,
+        display: false,
       },
       y: {
         stacked: true,
+        display: false,
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
       },
     },
   };
 
   const barData = {
-    labels: [1, 2],
+    labels: [label],
     datasets: [
       {
         type: "bar",
-        label: "Bar Dataset",
-        data: stats[0],
+        label: "Positive",
+        data: stats[0] > stats[1] ? [stats[0]] : [stats[1]],
         borderColor: utils.chartGreen,
         backgroundColor: utils.chartGreenBg,
       },
       {
         type: "bar",
-        label: "Bar Dataset",
-        data: stats[1],
+        label: "Negative",
+        data: stats[0] > stats[1] ? [-stats[1]] : [-stats[0]],
         borderColor: utils.chartRed,
         backgroundColor: utils.chartRedBg,
       },
