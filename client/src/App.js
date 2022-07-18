@@ -8,6 +8,23 @@ import NavigationBar from './components/NavigationBar';
 import "./App.scss";
 import SharePage from './pages/SharePage';
 import ResultsPage from './pages/ResultsPage';
+import {
+  Chart as ChartJS,
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+ChartJS.register(
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend
+);
 
 function App() {
   return (
