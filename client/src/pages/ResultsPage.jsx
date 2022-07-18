@@ -1,6 +1,6 @@
 import { Container, Grid, Stack } from "@mui/material";
 import { PaddingY } from "../components/Spacing";
-import { Radar } from "react-chartjs-2";
+import { Bar, Radar } from "react-chartjs-2";
 import "./ResultsPage.scss";
 
 function ResultsPage() {
@@ -29,10 +29,10 @@ function ResultsPage() {
       },
     ],
   };
-  const options = {
+  const radarOptions = {
     plugins: {
       legend: {
-        position: "bottom",
+        position: "top",
       },
     },
     scales: {
@@ -40,12 +40,52 @@ function ResultsPage() {
         ticks: {
           color: "rgba(0, 0, 0, 0)",
           backdropColor: "rgba(0, 0, 0, 0)",
+          maxTicksLimit: 8,
         },
         min: 0,
         max: 1,
       },
     },
   };
+
+  const barOptions = {
+    indexAxis: "y",
+    elements: {
+      bar: {
+        borderWidth: 2,
+      },
+    },
+    scales: {
+      x: {
+        min: -1,
+        max: 1,
+      },
+      y: {
+        stacked: true,
+      },
+    },
+  };
+
+  const barData = {
+    labels: [1, 2],
+    datasets: [
+      {
+        type: "bar",
+        label: "Bar Dataset",
+        data: [-0.1, 0.9],
+        borderColor: "rgb(173, 193, 120)",
+        backgroundColor: "rgba(173, 193, 120, 0.5)",
+      },
+      {
+        type: "bar",
+        label: "Bar Dataset",
+        data: [0.3, -0.5],
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+    ],
+  };
+
   return (
     <Container>
       <h1>Results Page</h1>
@@ -64,7 +104,8 @@ function ResultsPage() {
           <ProfileStack />
         </Grid>
         <Grid item xs={6} sm={6} md={4}>
-          <Radar data={data} options={options} />
+          <Radar data={data} options={radarOptions} />
+          <Bar options={barOptions} data={barData} />;
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
           <ProfileStack />

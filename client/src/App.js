@@ -10,6 +10,9 @@ import SharePage from './pages/SharePage';
 import ResultsPage from './pages/ResultsPage';
 import {
   Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
   RadialLinearScale,
   PointElement,
   LineElement,
@@ -21,6 +24,9 @@ ChartJS.register(
   RadialLinearScale,
   PointElement,
   LineElement,
+  CategoryScale,
+  LinearScale,
+  BarElement,
   Filler,
   Tooltip,
   Legend
