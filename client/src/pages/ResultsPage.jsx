@@ -5,16 +5,46 @@ import "./ResultsPage.scss";
 
 function ResultsPage() {
   const data = {
-    labels: ["Thing 1", "Thing 2", "Thing 3", "Thing 4", "Thing 5", "Thing 6"],
+    labels: [
+      "Current Rating",
+      "Highest Rating",
+      "W/L Percentage  ",
+      "Total Games",
+      "Tactics Rating",
+    ],
     datasets: [
       {
-        label: "# of Votes",
-        data: [2, 9, 3, 5, 2, 3],
+        label: "User 1",
+        data: [0.2, 0.9, 0.3, 0.5, 0.2],
         backgroundColor: "rgba(255, 99, 132, 0.2)",
         borderColor: "rgba(255, 99, 132, 1)",
         borderWidth: 1,
       },
+      {
+        label: "User 2",
+        data: [0.3, 0.2, 0.6, 0.8, 0.7],
+        backgroundColor: "rgba(173, 193, 120, 0.2)",
+        borderColor: "rgba(173, 193, 120, 1)",
+        borderWidth: 1,
+      },
     ],
+  };
+  const options = {
+    plugins: {
+      legend: {
+        position: "bottom",
+      },
+    },
+    scales: {
+      r: {
+        ticks: {
+          color: "rgba(173, 193, 120, 0)",
+          backdropColor: "rgba(173, 193, 120, 0)",
+        },
+        min: 0,
+        max: 1,
+      },
+    },
   };
   return (
     <Container>
@@ -33,8 +63,8 @@ function ResultsPage() {
         <Grid item xs={6} sm={6} md={3}>
           <ProfileStack />
         </Grid>
-        <Grid item xs={6} sm={6} md={3}>
-          <Radar data={data} />
+        <Grid item xs={6} sm={6} md={4}>
+          <Radar data={data} options={options} />
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
           <ProfileStack />
