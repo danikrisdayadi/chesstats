@@ -7,6 +7,7 @@ import Error404Page from './pages/Error404Page';
 import NavigationBar from './components/NavigationBar';
 import "./App.scss";
 import SharePage from './pages/SharePage';
+import ResultsPage from './pages/ResultsPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/compare" element={<ComparePage />} />
             <Route path="/compare/:username" element={<SharePage />} />
+            <Route path="/compare/:username/:username2" element={<ResultsPage />} />
             <Route path="*" element={<Error404Page />} />
           </Routes>
         </BrowserRouter>
