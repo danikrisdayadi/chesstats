@@ -3,13 +3,7 @@ import * as utils from "../utils/utils";
 
 function ResultsRadarChart({ usernames, stats }) {
   const data = {
-    labels: [
-      "Current Rating",
-      "Highest Rating",
-      "W/L Percentage  ",
-      "Total Games",
-      "Tactics Rating",
-    ],
+    labels: ["Current", "Highest", "W/L", "Total Games", "Tactics"],
     datasets: [
       {
         label: usernames[0],

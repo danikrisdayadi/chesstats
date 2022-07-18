@@ -4,3 +4,23 @@
   width: 20vh;
   height: 20vh;
 }
+
+.chart-container {
+  position: relative;
+  height: 30vh;
+  width: 30vh;
+}
+
+.bar-container {
+  position: relative;
+  height: 40px;
+  width: 255px;
+  padding: 5px 0px;
+}
+
+.data-list {
+  height: 50px;
+  margin: 0;
+  vertical-align: middle;
+  display: table-cell;
+}

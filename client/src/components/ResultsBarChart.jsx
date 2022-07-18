@@ -3,6 +3,8 @@ import * as utils from "../utils/utils";
 
 function ResultsBarChart({ label, stats }) {
   const barOptions = {
+    maintainAspectRatio: false,
+    responsive: true,
     indexAxis: "y",
     elements: {
       bar: {

@@ -22,15 +22,31 @@ function ResultsPage() {
         <Grid item xs={6} sm={6} md={3}>
           <ProfileStack />
         </Grid>
-        <Grid item xs={6} sm={6} md={4}>
-          <ResultsRadarChart
-            usernames={["Dani", "Adam"]}
-            stats={[
-              [0.1, 0.2, 0.3, 0.4, 0.5],
-              [0.5, 0.4, 0.3, 0.2, 0.8],
-            ]}
-          />
-          <ResultsBarChart label="ELO rating" stats={[[0.1], [0.5]]} />
+        <Grid item xs={6} sm={6} md={4} align="center">
+          <div className="chart-container">
+            <ResultsRadarChart
+              usernames={["Dani", "Adam"]}
+              stats={[
+                [0.1, 0.2, 0.3, 0.4, 0.5],
+                [0.5, 0.4, 0.3, 0.2, 0.8],
+              ]}
+            />
+          </div>
+          <div className="bar-container">
+            <ResultsBarChart label="ELO rating" stats={[[0.1], [0.5]]} />
+          </div>
+          <div className="bar-container">
+            <ResultsBarChart label="ELO rating" stats={[[0.4], [0.2]]} />
+          </div>
+          <div className="bar-container">
+            <ResultsBarChart label="ELO rating" stats={[[0.9], [0.8]]} />
+          </div>
+          <div className="bar-container">
+            <ResultsBarChart label="ELO rating" stats={[[0.2], [0.6]]} />
+          </div>
+          <div className="bar-container">
+            <ResultsBarChart label="ELO rating" stats={[[0.4], [0.4]]} />
+          </div>
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
           <ProfileStack />
@@ -56,11 +72,22 @@ function ProfileStack() {
         <img src="/chesstats_logo.png" alt="Avatar" className="profile-logo" />
         <h2>Dani Purwadi</h2>
       </Stack>
-      <p>Current Rating</p>
-      <p>Highest Rating</p>
-      <p>Win/Loss Percentage</p>
-      <p>Total Games</p>
-      <p>Tactics Rating</p>
+      <div className="data-list">
+        <p>Current Rating</p>
+      </div>
+      <div className="data-list">
+        <p>Highest Rating</p>
+      </div>
+
+      <div className="data-list">
+        <p>Win/Loss Percentage</p>
+      </div>
+      <div className="data-list">
+        <p>Total Games</p>
+      </div>
+      <div className="data-list">
+        <p>Tactics Rating</p>
+      </div>
     </Stack>
   );
 }
