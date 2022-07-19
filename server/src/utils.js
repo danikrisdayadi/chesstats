@@ -1,30 +1,30 @@
 export function formatUserData(userData) {
-  const bulletTotalGames = userData.chess_bullet.record.win + userData.chess_bullet.record.loss + userData.chess_bullet.record.draw;
-  const blitzTotalGames = userData.chess_blitz.record.win + userData.chess_blitz.record.loss + userData.chess_blitz.record.draw;
-  const rapidTotalGames = userData.chess_rapid.record.win + userData.chess_rapid.record.loss + userData.chess_rapid.record.draw;
+  const bulletTotalGames = (userData?.chess_bullet?.record?.win || 0) + (userData?.chess_bullet?.record?.loss || 0) + (userData?.chess_bullet?.record?.draw || 0);
+  const blitzTotalGames = (userData?.chess_blitz?.record?.win || 0) + (userData?.chess_blitz?.record?.loss || 0) + (userData?.chess_blitz?.record?.draw || 0);
+  const rapidTotalGames = (userData?.chess_rapid?.record?.win || 0) + (userData?.chess_rapid?.record?.loss || 0) + (userData?.chess_rapid?.record?.draw || 0);
 
   return {
     bullet: {
-      currentRating: userData.chess_bullet.last.rating,
-      bestRating: userData.chess_bullet.best.rating,
-      winPercentage: userData.chess_bullet.record.win / bulletTotalGames,
+      currentRating: userData?.chess_bullet?.last?.rating || 0,
+      bestRating: userData?.chess_bullet?.best?.rating || 0,
+      winPercentage: (userData?.chess_bullet?.record?.win || 0) / Math.min(bulletTotalGames, 1),
       totalGames: bulletTotalGames
     },
     blitz: {
-      currentRating: userData.chess_blitz.last.rating,
-      bestRating: userData.chess_blitz.best.rating,
-      record: userData.chess_blitz.record,
-      winPercentage: userData.chess_blitz.record.win / blitzTotalGames,
+      currentRating: userData?.chess_blitz?.last?.rating || 0,
+      bestRating: userData?.chess_blitz?.best?.rating || 0,
+      record: userData?.chess_blitz?.record || 0,
+      winPercentage: (userData?.chess_blitz?.record?.win || 0) / Math.min(blitzTotalGames, 1),
       totalGames: blitzTotalGames
     },
     rapid: {
-      currentRating: userData.chess_rapid.last.rating,
-      bestRating: userData.chess_rapid.best.rating,
-      record: userData.chess_rapid.record,
-      winPercentage: userData.chess_rapid.record.win / rapidTotalGames,
+      currentRating: userData?.chess_rapid?.last?.rating || 0,
+      bestRating: userData?.chess_rapid?.best?.rating || 0,
+      record: userData?.chess_rapid?.record || 0,
+      winPercentage: (userData?.chess_rapid?.record?.win || 0) / Math.min(rapidTotalGames, 1),
       totalGames: rapidTotalGames
     },
-    tactics: userData.tactics,
+    tactics: userData?.tactics,
   };
 
 }
