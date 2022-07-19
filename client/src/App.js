@@ -42,7 +42,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/compare" element={<ComparePage />} />
             <Route path="/compare/:username" element={<SharePage />} />
-            <Route path="/compare/:username/:username2" element={<ResultsPage />} />
+            <Route path="/compare/:username/:otherUsername" element={<ResultsPage />} />
             <Route path="*" element={<Error404Page />} />
           </Routes>
         </BrowserRouter>

@@ -7,9 +7,17 @@ import { useState } from "react";
 
 function ComparePage() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("blank");
+  const [username, setUsername] = useState("");
+  const [validity, setValidity] = useState(true);
+  const [helperText, setHelperText] = useState("");
+
   const handleClick = () => {
-    navigate(`/compare/${username}`);
+    if (username.length > 0) {
+      navigate(`/compare/${username}`);
+    } else {
+      setHelperText("Username cannot be blank");
+      setValidity(false);
+    }
   };
 
   return (
@@ -38,6 +46,8 @@ function ComparePage() {
                   id="outlined-basic"
                   label="Username"
                   variant="outlined"
+                  error={!validity}
+                  helperText={helperText}
                   onChange={event => setUsername(event.target.value)}
                 />
               </Grid>

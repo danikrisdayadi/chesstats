@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import {
   Button,
@@ -15,10 +15,18 @@ import "./SharePage.scss";
 
 function SharePage() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("blank");
+  const { username } = useParams();
+  const [otherUsername, setOtherUsername] = useState("");
+  const [validity, setValidity] = useState(true);
+  const [helperText, setHelperText] = useState("");
 
   const handleClick = () => {
-    navigate(`/compare/123/123`);
+    if (otherUsername.length > 0) {
+      navigate(`/compare/${username}/${otherUsername}`);
+    } else {
+      setHelperText("Username cannot be blank");
+      setValidity(false);
+    }
   };
 
   return (
@@ -74,6 +82,9 @@ function SharePage() {
                   id="outlined-basic"
                   label="Enter Username"
                   variant="outlined"
+                  error={!validity}
+                  helperText={helperText}
+                  onChange={event => setOtherUsername(event.target.value)}
                 />
               </Grid>
               <Grid item xs={3} sm={2}>
