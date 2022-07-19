@@ -20,10 +20,3 @@ a {
   text-decoration: none;
   transition: 0.3s;
 }
-a:link,
-a:visited {
-  color: colors.$theme;
-}
-a:hover {
-  color: colors.$body;
-}

@@ -1,10 +1,13 @@
-import { Avatar, Button, Container, Divider, Stack, Grid } from "@mui/material";
+import { Avatar, Container, Divider, Stack, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import { PaddingY } from "../components/Spacing";
 import { SuccessButton, FeedbackButton } from "../utils/utils";
+import { useNavigate } from "react-router-dom";
+
 import "./LandingPage.scss";
 
 function LandingPage() {
+  const navigate = useNavigate();
   const featuredAccounts = [
     {
       username: "hikaru",
@@ -38,18 +41,21 @@ function LandingPage() {
           </p>
         </Box>
         <PaddingY padding={"2vh"} />
-        <SuccessButton sx={{ padding: "12px 50px" }}>
+        <SuccessButton
+          sx={{ padding: "12px 50px" }}
+          onClick={() => navigate("/compare")}
+        >
           Start Comparing!
         </SuccessButton>
         <PaddingY padding={"3vh"} />
 
         <Divider className="divider">or</Divider>
-        <PaddingY padding={"2vh"} />
+        <PaddingY padding={"3vh"} />
 
         <p style={{ marginTop: 0 }}>
           Compare with one of featured Chess.com accounts!
         </p>
-        <PaddingY padding={"1vh"} />
+        <PaddingY padding={"2vh"} />
         <Container>
           <Grid container>
             {featuredAccounts.map((account, index) => (
@@ -78,7 +84,13 @@ function LandingPage() {
             improvements, do let the developers know using the form below!
           </p>
           <PaddingY padding={"2vh"} />
-          <FeedbackButton>Test</FeedbackButton>
+          <FeedbackButton
+            sx={{ padding: "12px 50px" }}
+            target="_blank"
+            href="https://forms.gle/DpGcNDidou9xpPSJ6"
+          >
+            Feedback Form
+          </FeedbackButton>
           <PaddingY padding={"5vh"} />
         </Container>
       </div>

@@ -1,7 +1,7 @@
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import "./NavigationBar.scss";
-import { Container, Toolbar } from "@mui/material";
+import { Container, Stack, Toolbar } from "@mui/material";
 
 function NavigationBar() {
   return (
@@ -17,12 +17,14 @@ function NavigationBar() {
               />
             </a>
             <Container sx={{ flexGrow: 1 }}></Container>
-            <a href="/compare">
-              <h3>Compare</h3>
-            </a>
-            <a href="/about">
-              <h3 className="text">About</h3>
-            </a>
+            <Stack direction="row" spacing={3}>
+              <a href="/compare" className="navbar-link">
+                <h3>Compare</h3>
+              </a>
+              <a href="/about" className="navbar-link">
+                <h3>About</h3>
+              </a>
+            </Stack>
           </Toolbar>
         </Container>
       </AppBar>

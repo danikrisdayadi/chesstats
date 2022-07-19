@@ -1,3 +1,5 @@
+@use "../styles/colors";
+
 $min-navbar-height: 50px;
 $max-navbar-height: 100px;
 $navbar-vh: 8vh;
@@ -15,6 +17,9 @@ $navbar-vh: 8vh;
   height: clamp($min-navbar-height - 20px, 5vh, $max-navbar-height - 20px);
 }
 
-.text {
-  margin-left: 20px;
+.navbar-link {
+  color: colors.$theme;
+}
+.navbar-link:hover {
+  color: colors.$body;
 }

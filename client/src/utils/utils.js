@@ -49,7 +49,11 @@ export const FeedbackButton = styled(Button)(() => ({
   border: '1px solid',
   borderColor: colors.whiteYellow,
   '&:hover': {
-    backgroundColor: "rgba(0,0,0,0.05)",
+    backgroundColor: "rgba(255,255,255,0.1)",
     borderColor: hexToRGB(colors.whiteYellow, 0.7)
   },
+  '&:focus': {
+    color: "#fff",
+  },
+
 }));
