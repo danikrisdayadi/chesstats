@@ -6,19 +6,34 @@
 
 h1 {
   font-family: "Roboto";
-  font-size: 48px;
+  font-size: clamp(40px, 4vw, 48px);
   color: colors.$theme;
 }
 
 h2 {
   font-family: "Roboto";
-  font-size: 32px;
+  font-size: clamp(28px, 4vw, 32px);
   color: colors.$theme;
+}
+
+h3 {
+  font-family: "Roboto";
+  font-size: clamp(20px, 4vw, 24px);
+}
+
+h4 {
+  font-family: "Roboto";
+  font-size: clamp(18px, 4vw, 20px);
+}
+
+h5 {
+  font-family: "Roboto";
+  font-size: 18px;
 }
 
 p {
   font-family: "Roboto";
-  font-size: 18px;
+  font-size: clamp(14px, 4vw, 18px);
   color: colors.$body;
   line-height: 2rem;
 }

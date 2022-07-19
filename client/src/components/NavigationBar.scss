@@ -10,7 +10,7 @@ $navbar-vh: 8vh;
 
 .navigation-bar {
   height: clamp($min-navbar-height, $navbar-vh, $max-navbar-height);
-  background-color: transparent;
+  background-color: colors.$shade-1;
 }
 
 .logo {
@@ -18,8 +18,8 @@ $navbar-vh: 8vh;
 }
 
 .navbar-link {
-  color: colors.$theme;
+  color: colors.$body;
 }
 .navbar-link:hover {
-  color: colors.$body;
+  color: colors.$theme;
 }

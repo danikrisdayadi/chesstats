@@ -38,7 +38,7 @@ function ComparePage() {
           </p>
           <PaddingY padding={"1vh"} />
           <Container maxWidth="md">
-            <Grid container alignItems="center" columnSpacing={1}>
+            <Grid container columnSpacing={1}>
               <Grid item xs={0} sm={1} />
               <Grid item xs={8} sm={8}>
                 <TextField

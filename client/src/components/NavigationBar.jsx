@@ -6,7 +6,7 @@ import { Container, Stack, Toolbar } from "@mui/material";
 function NavigationBar() {
   return (
     <Box className="navigation-box">
-      <AppBar position="static" className="navigation-bar">
+      <AppBar className="navigation-bar">
         <Container maxWidth="xl" className="navigation-bar">
           <Toolbar style={{ minHeight: "30px", height: "100%", padding: 0 }}>
             <a href="/">
@@ -19,10 +19,10 @@ function NavigationBar() {
             <Container sx={{ flexGrow: 1 }}></Container>
             <Stack direction="row" spacing={3}>
               <a href="/compare" className="navbar-link">
-                <h3>Compare</h3>
+                <h4>Compare</h4>
               </a>
               <a href="/about" className="navbar-link">
-                <h3>About</h3>
+                <h4>About</h4>
               </a>
             </Stack>
           </Toolbar>
