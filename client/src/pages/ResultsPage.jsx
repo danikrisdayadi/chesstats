@@ -4,10 +4,21 @@ import ResultsRadarChart from "../components/ResultsRadarChart";
 import ResultsBarChart from "../components/ResultsBarChart";
 import * as utils from "../utils/utils";
 import "./ResultsPage.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { getStats } from "../utils/apiRequests";
 
 function ResultsPage() {
   const [timeControl, setTimeControl] = useState("bullet");
+  const { username, otherUsername } = useParams();
+  const [apiData, setApiData] = useState({});
+
+  useEffect(() => {
+    getStats(username, otherUsername).then(d => setApiData(d));
+  }, []);
+
+  console.log(apiData);
+
   return (
     <Container maxWidth="xl">
       <h1>Results Page</h1>
@@ -15,15 +26,28 @@ function ResultsPage() {
         <Grid item xs={6} sm={6} md={1}>
           <Stack>
             <PaddingY padding={"15vh"} />
-            <p>Current Rating</p>
-            <p>Highest Rating</p>
-            <p>Win/Loss %</p>
-            <p>Total Games</p>
-            <p>Tactics Rating</p>
+            <div className="data-list">
+              <p>Current Rating</p>
+            </div>
+            <div className="data-list">
+              <p>Highest Rating</p>
+            </div>
+            <div className="data-list">
+              <p>Win/Loss %</p>
+            </div>
+            <div className="data-list">
+              <p>Total Games</p>
+            </div>
+            <div className="data-list">
+              <p>Tactics Rating</p>
+            </div>
           </Stack>
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
-          <ProfileStack />
+          <ProfileStack
+            apiData={apiData.currUserData}
+            timeControl={timeControl}
+          />
         </Grid>
         <Grid item xs={6} sm={6} md={4} align="center">
           <div className="chart-container">
@@ -52,7 +76,10 @@ function ResultsPage() {
           </div>
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
-          <ProfileStack />
+          <ProfileStack
+            apiData={apiData.otherUserData}
+            timeControl={timeControl}
+          />
         </Grid>
         <Grid item xs={6} sm={6} md={1}>
           <Stack
@@ -106,28 +133,39 @@ function ResultsPage() {
   );
 }
 
-function ProfileStack() {
+function ProfileStack({ apiData, timeControl }) {
+  // console.log(apiData);
   return (
     <Stack align="center">
       <Stack sx={{ height: "30vh" }} alignItems="center">
         <img src="/chesstats_logo.png" alt="Avatar" className="profile-logo" />
-        <h2>Dani Purwadi</h2>
+        <h2>{apiData ? apiData.username : "loading..."}</h2>
       </Stack>
       <div className="data-list">
-        <p>Current Rating</p>
+        <p>
+          {apiData ? apiData[`${timeControl}`]["currentRating"] : "loading..."}
+        </p>
       </div>
       <div className="data-list">
-        <p>Highest Rating</p>
+        <p>
+          {apiData ? apiData[`${timeControl}`]["bestRating"] : "loading..."}
+        </p>
       </div>
 
       <div className="data-list">
-        <p>Win/Loss Percentage</p>
+        <p>
+          {apiData ? apiData[`${timeControl}`]["winPercentage"] : "loading..."}
+        </p>
       </div>
       <div className="data-list">
-        <p>Total Games</p>
+        <p>
+          {apiData ? apiData[`${timeControl}`]["totalGames"] : "loading..."}
+        </p>
       </div>
       <div className="data-list">
-        <p>Tactics Rating</p>
+        <p>
+          {apiData ? apiData["tactics"]["highest"]["rating"] : "loading..."}
+        </p>
       </div>
     </Stack>
   );
