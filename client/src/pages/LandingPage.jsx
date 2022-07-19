@@ -1,46 +1,66 @@
 import { Avatar, Button, Container, Divider, Stack, Grid } from "@mui/material";
 import { Box } from "@mui/system";
-import "./LandingPage.scss";
 import { PaddingY } from "../components/Spacing";
+import { ColorButton, SuccessButton, FeedbackButton } from "../utils/utils";
+import "./LandingPage.scss";
 
 function LandingPage() {
+  const featuredAccounts = [
+    {
+      username: "hikaru",
+      name: "Hikaru Nakamura",
+    },
+    {
+      username: "levy",
+      name: "Levy Rozman",
+    },
+    {
+      username: "carlsen",
+      name: "Magnus Carlsen",
+    },
+    {
+      username: "botez",
+      name: "Andrea Botez",
+    },
+  ];
   return (
     <div>
       <Container maxWidth="xl" align="center" className="main-container">
         <PaddingY padding={"5vh"} />
 
         <h1>Compare your Chess.com Statistics with others!</h1>
-        <Box className="text-box">
-          <p>
+        <Box>
+          <p className="text-paragraph">
             Chesstats allows you to compare basic statistics of your Chess.com
-            account with other players. Click below to start comparing with your
-            friends or one of our featured accounts!
+            account with other players. <br />
+            Click below to start comparing with your friends or one of our
+            featured accounts!
           </p>
         </Box>
         <PaddingY padding={"2vh"} />
-
-        <Button color="success" variant="outlined" size="large">
+        <ColorButton sx={{ padding: "12px 50px" }}>
           Start Comparing!
-        </Button>
-        <PaddingY padding={"5vh"} />
+        </ColorButton>
+        <PaddingY padding={"3vh"} />
 
-        <Divider style={{ width: "50%" }}>or</Divider>
-        <PaddingY padding={"5vh"} />
-
-        <p>Compare with one of famous Chess.com users!</p>
+        <Divider className="divider">or</Divider>
         <PaddingY padding={"2vh"} />
 
+        <p style={{ marginTop: 0 }}>
+          Compare with one of featured Chess.com accounts!
+        </p>
+        <PaddingY padding={"1vh"} />
         <Container>
           <Grid container>
-            {Array.from(Array(4)).map((_, index) => (
-              <Grid item xs={6} sm={6} md={3}>
+            {featuredAccounts.map((account, index) => (
+              <Grid item xs={6} sm={6} md={3} key={index}>
                 <Stack alignItems="center" className="stack">
                   <Avatar
-                    alt="Remy Sharp"
+                    alt={account.name}
                     src="/static/images/avatar/1.jpg"
                     sx={{ width: "60px", height: "60px" }}
                   />
-                  <p>Remy Sharp</p>
+                  <p>{account.name}</p>
                 </Stack>
               </Grid>
             ))}
@@ -50,7 +70,7 @@ function LandingPage() {
       </Container>
       <div className="about-container">
         <Container maxWidth="lg" align="center">
-          <PaddingY padding={"5vh"} />
+          <PaddingY padding={"2vh"} />
           <h1>About Chesstats</h1>
           <p>
             Chesstats is a simple summer holiday project to brush up some
@@ -58,6 +78,7 @@ function LandingPage() {
             improvements, do let the developers know using the form below!
           </p>
           <PaddingY padding={"2vh"} />
+          <FeedbackButton>Test</FeedbackButton>
           <Button variant="outlined" size="large">
             Suggestion Form
           </Button>

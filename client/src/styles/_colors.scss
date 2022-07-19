@@ -2,8 +2,21 @@
 $title: #231f1a;
 $shade-1: #f0ead2;
 $shade-2: #dde5b6;
-$call-to-action: #adc178;
+$cta: #adc178;
+$dark-cta: #8ea259;
 $theme: #6c584c;
 $body: #a98467;
 $white: #ffffff;
 $white-yellow: #f3f1e8;
+
+:export {
+  title: $title;
+  shade: $shade-1;
+  shade2: $shade-2;
+  cta: $cta;
+  darkCta: $dark-cta;
+  theme: $theme;
+  body: $body;
+  white: $white;
+  whiteYellow: $white-yellow;
+}

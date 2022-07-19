@@ -4,8 +4,9 @@
   color: colors.$title;
 }
 
-.text-box {
-  max-width: 50wh;
+.text-paragraph {
+  line-height: 2rem;
+  // max-width: 50vw;
 }
 
 .line {
@@ -26,8 +27,22 @@
 
 .about-container {
   background-color: colors.$body;
+  color: white;
 }
 
 .main-container {
   min-height: 92vh;
+}
+
+.divider {
+  color: colors.$body;
+  width: clamp(200px, 50vw, 600px);
+}
+
+.about-container p {
+  color: colors.$white-yellow;
+  line-height: 2rem;
+}
+.about-container h1 {
+  color: colors.$white-yellow;
 }
