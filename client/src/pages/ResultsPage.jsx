@@ -1,8 +1,9 @@
 import { Container, Grid, Stack } from "@mui/material";
 import { PaddingY } from "../components/Spacing";
-import "./ResultsPage.scss";
 import ResultsRadarChart from "../components/ResultsRadarChart";
 import ResultsBarChart from "../components/ResultsBarChart";
+import * as utils from "../utils/utils";
+import "./ResultsPage.scss";
 
 function ResultsPage() {
   return (
@@ -58,7 +59,7 @@ function ResultsPage() {
           <p>*Win Probability is based on ELO rating</p>
         </Grid>
         <Grid item xs={6} md={4} align="center">
-          <h1>25%</h1>
+          <h1>{utils.WinProbabilityCalculator(1500, 1600)}%</h1>
         </Grid>
       </Grid>
     </Container>
