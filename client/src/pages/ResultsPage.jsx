@@ -12,12 +12,15 @@ function ResultsPage() {
   const [timeControl, setTimeControl] = useState("bullet");
   const { username, otherUsername } = useParams();
   const [apiData, setApiData] = useState({});
+  const [graphData, setGraphData] = useState(undefined);
 
   useEffect(() => {
     getStats(username, otherUsername).then(d => setApiData(d));
   }, []);
 
-  console.log(apiData);
+  useEffect(() => {
+    setGraphData(utils.formatStats(apiData, timeControl));
+  }, [apiData, timeControl]);
 
   return (
     <Container maxWidth="xl">
@@ -51,13 +54,7 @@ function ResultsPage() {
         </Grid>
         <Grid item xs={6} sm={6} md={4} align="center">
           <div className="chart-container">
-            <ResultsRadarChart
-              usernames={["Dani", "Adam"]}
-              stats={[
-                [0.1, 0.2, 0.3, 0.4, 0.5],
-                [0.5, 0.4, 0.3, 0.2, 0.8],
-              ]}
-            />
+            <ResultsRadarChart usernames={["Dani", "Adam"]} stats={graphData} />
           </div>
           <div className="bar-container">
             <ResultsBarChart label="ELO rating" stats={[[0.1], [0.5]]} />
@@ -134,7 +131,6 @@ function ResultsPage() {
 }
 
 function ProfileStack({ apiData, timeControl }) {
-  // console.log(apiData);
   return (
     <Stack align="center">
       <Stack sx={{ height: "30vh" }} alignItems="center">
