@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "chesstats",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^13.5.0",
     "chart.js": "^3.8.0",
     "node-fetch": "^2.6.7",
+    "node-sass": "^7.0.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0",
