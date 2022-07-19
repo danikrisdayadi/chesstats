@@ -88,12 +88,20 @@ function ResultsPage() {
       <Grid container>
         <Grid item xs={6} md={4}>
           <h1>Win Probability:</h1>
-          <p>*Win Probability is based on ELO rating</p>
         </Grid>
         <Grid item xs={6} md={4} align="center">
           <h1>{utils.WinProbabilityCalculator(1500, 1600)}%</h1>
         </Grid>
       </Grid>
+      <Stack
+        direction="row"
+        spacing={4}
+        sx={{ width: "100%" }}
+        justifyContent="center"
+      >
+        <Button variant="outlined">Share</Button>
+        <Button variant="outlined">Compare</Button>
+      </Stack>
     </Container>
   );
 }
