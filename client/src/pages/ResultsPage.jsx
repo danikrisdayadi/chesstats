@@ -1,21 +1,23 @@
-import { Container, Grid, Stack } from "@mui/material";
+import { Button, Container, Grid, Stack } from "@mui/material";
 import { PaddingY } from "../components/Spacing";
 import ResultsRadarChart from "../components/ResultsRadarChart";
 import ResultsBarChart from "../components/ResultsBarChart";
 import * as utils from "../utils/utils";
 import "./ResultsPage.scss";
+import { useState } from "react";
 
 function ResultsPage() {
+  const [timeControl, setTimeControl] = useState("bullet");
   return (
-    <Container>
+    <Container maxWidth="xl">
       <h1>Results Page</h1>
       <Grid container>
-        <Grid item xs={6} sm={6} md={2}>
+        <Grid item xs={6} sm={6} md={1}>
           <Stack>
             <PaddingY padding={"15vh"} />
             <p>Current Rating</p>
             <p>Highest Rating</p>
-            <p>Win/Loss Percentage</p>
+            <p>Win/Loss %</p>
             <p>Total Games</p>
             <p>Tactics Rating</p>
           </Stack>
@@ -52,9 +54,39 @@ function ResultsPage() {
         <Grid item xs={6} sm={6} md={3}>
           <ProfileStack />
         </Grid>
+        <Grid item xs={6} sm={6} md={1}>
+          <Stack
+            direction="column"
+            spacing={2}
+            justifyContent="center"
+            sx={{ height: "100%" }}
+          >
+            <Button
+              variant="outlined"
+              disabled={timeControl === "bullet"}
+              onClick={() => setTimeControl("bullet")}
+            >
+              Bullet
+            </Button>
+            <Button
+              variant="outlined"
+              disabled={timeControl === "blitz"}
+              onClick={() => setTimeControl("blitz")}
+            >
+              Blitz
+            </Button>
+            <Button
+              variant="outlined"
+              disabled={timeControl === "rapid"}
+              onClick={() => setTimeControl("rapid")}
+            >
+              Rapid
+            </Button>
+          </Stack>
+        </Grid>
       </Grid>
       <Grid container>
-        <Grid item xs={6} md={5}>
+        <Grid item xs={6} md={4}>
           <h1>Win Probability:</h1>
           <p>*Win Probability is based on ELO rating</p>
         </Grid>
