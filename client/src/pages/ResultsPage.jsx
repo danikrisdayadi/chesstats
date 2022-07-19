@@ -56,21 +56,18 @@ function ResultsPage() {
           <div className="chart-container">
             <ResultsRadarChart usernames={["Dani", "Adam"]} stats={graphData} />
           </div>
-          <div className="bar-container">
-            <ResultsBarChart label="ELO rating" stats={[[0.1], [0.5]]} />
-          </div>
-          <div className="bar-container">
-            <ResultsBarChart label="ELO rating" stats={[[0.4], [0.2]]} />
-          </div>
-          <div className="bar-container">
-            <ResultsBarChart label="ELO rating" stats={[[0.9], [0.8]]} />
-          </div>
-          <div className="bar-container">
-            <ResultsBarChart label="ELO rating" stats={[[0.2], [0.6]]} />
-          </div>
-          <div className="bar-container">
-            <ResultsBarChart label="ELO rating" stats={[[0.4], [0.4]]} />
-          </div>
+          {Array.from(Array(5).keys()).map(index => {
+            const currStats = graphData ? graphData[0][index] : 0;
+            const otherStats = graphData ? graphData[1][index] : 0;
+            return (
+              <div className="bar-container" key={index}>
+                <ResultsBarChart
+                  label="ELO rating"
+                  stats={[[currStats], [otherStats]]}
+                />
+              </div>
+            );
+          })}
         </Grid>
         <Grid item xs={6} sm={6} md={3}>
           <ProfileStack

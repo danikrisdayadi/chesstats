@@ -105,20 +105,19 @@ export function formatStats(apiData, timeControl) {
   }
 
   const maxRating = 3050;
-  const minRating = 50;
   const maxTactics = 3500;
   const currUserData = apiData.currUserData[timeControl];
   const otherUserData = apiData.otherUserData[timeControl];
   return [[
-    (currUserData.currentRating - minRating) / maxRating,
-    (currUserData.bestRating - minRating) / maxRating,
+    currUserData.currentRating / maxRating,
+    currUserData.bestRating / maxRating,
     currUserData.winPercentage,
     currUserData.totalGames / Math.max(currUserData.totalGames, otherUserData.totalGames),
     (apiData.currUserData["tactics"]["highest"]["rating"]) / maxTactics,
   ],
   [
-    (otherUserData.currentRating - minRating) / maxRating,
-    (otherUserData.bestRating - minRating) / maxRating,
+    otherUserData.currentRating / maxRating,
+    otherUserData.bestRating / maxRating,
     otherUserData.winPercentage,
     otherUserData.totalGames / Math.max(currUserData.totalGames, otherUserData.totalGames),
     (apiData.otherUserData["tactics"]["highest"]["rating"]) / maxTactics,
