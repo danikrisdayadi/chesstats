@@ -1,0 +1,16 @@
+@use "../styles/colors";
+@use "../components/NavigationBar.scss";
+
+.grid {
+  height: 100vh - NavigationBar.$navbar-vh;
+}
+
+.username-box {
+  background-color: colors.$white-yellow;
+  min-width: fit-content;
+  width: 50vw;
+}
+
+.username-box p {
+  width: 80%;
+}

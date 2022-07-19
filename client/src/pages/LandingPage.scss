@@ -4,10 +4,6 @@
   color: colors.$title;
 }
 
-.text-paragraph {
-  line-height: 2rem;
-}
-
 .line {
   width: 100%;
   height: 20px;
@@ -18,9 +14,6 @@
 .span {
   font-size: 40px;
   padding: 0 10px;
-}
-
-.stack {
 }
 
 .about-container {
@@ -39,7 +32,6 @@
 
 .about-container p {
   color: colors.$white-yellow;
-  line-height: 2rem;
 }
 .about-container h1 {
   color: colors.$white-yellow;

@@ -1,4 +1,4 @@
-import { Avatar, Button, Container, Divider, Stack, Grid } from "@mui/material";
+import { Avatar, Container, Divider, Stack, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import { PaddingY } from "../components/Spacing";
 import { SuccessButton, FeedbackButton, AccountButton } from "../utils/utils";
@@ -33,7 +33,7 @@ function LandingPage() {
 
         <h1>Compare your Chess.com Statistics with others!</h1>
         <Box>
-          <p className="text-paragraph">
+          <p>
             Chesstats allows you to compare basic statistics of your Chess.com
             account with other players. <br />
             Click below to start comparing with your friends or one of our
