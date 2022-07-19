@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Button, Container, Grid, Paper, TextField } from "@mui/material";
+import { Container, Grid, Paper, TextField } from "@mui/material";
 import { PaddingY } from "../components/Spacing";
 import { SuccessButton } from "../utils/utils";
 import "./ComparePage.scss";

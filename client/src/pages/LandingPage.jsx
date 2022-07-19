@@ -3,7 +3,6 @@ import { Box } from "@mui/system";
 import { PaddingY } from "../components/Spacing";
 import { SuccessButton, FeedbackButton, AccountButton } from "../utils/utils";
 import { useNavigate } from "react-router-dom";
-
 import "./LandingPage.scss";
 
 function LandingPage() {

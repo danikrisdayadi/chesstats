@@ -1,0 +1,14 @@
+@use "../styles/colors";
+@use "../components/NavigationBar.scss";
+@use "./ComparePage.scss";
+.grid {
+  @extend .grid;
+}
+
+.paper {
+  @extend .username-box;
+}
+
+.divider {
+  width: 60%;
+}
