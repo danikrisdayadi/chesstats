@@ -18,7 +18,7 @@ export function WinProbabilityCalculator(elo1, elo2) {
   return round(Math.abs(elo1 - elo2) / (elo1) * 100, 2);
 }
 
-function round(num, places) {
+export function round(num, places) {
   return +(Math.round(num + "e+" + places) + "e-" + places);
 }
 
@@ -78,21 +78,21 @@ export function formatUserData(userData, username) {
     bullet: {
       currentRating: userData?.chess_bullet?.last?.rating || 0,
       bestRating: userData?.chess_bullet?.best?.rating || 0,
-      winPercentage: (userData?.chess_bullet?.record?.win || 0) / Math.min(bulletTotalGames, 1),
+      winPercentage: (userData?.chess_bullet?.record?.win || 0) / Math.max(bulletTotalGames, 1),
       totalGames: bulletTotalGames
     },
     blitz: {
       currentRating: userData?.chess_blitz?.last?.rating || 0,
       bestRating: userData?.chess_blitz?.best?.rating || 0,
       record: userData?.chess_blitz?.record || 0,
-      winPercentage: (userData?.chess_blitz?.record?.win || 0) / Math.min(blitzTotalGames, 1),
+      winPercentage: (userData?.chess_blitz?.record?.win || 0) / Math.max(blitzTotalGames, 1),
       totalGames: blitzTotalGames
     },
     rapid: {
       currentRating: userData?.chess_rapid?.last?.rating || 0,
       bestRating: userData?.chess_rapid?.best?.rating || 0,
       record: userData?.chess_rapid?.record || 0,
-      winPercentage: (userData?.chess_rapid?.record?.win || 0) / Math.min(rapidTotalGames, 1),
+      winPercentage: (userData?.chess_rapid?.record?.win || 0) / Math.max(rapidTotalGames, 1),
       totalGames: rapidTotalGames
     },
     tactics: userData?.tactics,

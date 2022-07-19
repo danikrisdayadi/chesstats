@@ -154,7 +154,12 @@ function ProfileStack({ apiData, timeControl }) {
 
       <div className="data-list">
         <p>
-          {apiData ? apiData[`${timeControl}`]["winPercentage"] : "loading..."}
+          {apiData
+            ? `${utils.round(
+                apiData[`${timeControl}`]["winPercentage"] * 100,
+                2
+              )}%`
+            : "loading..."}
         </p>
       </div>
       <div className="data-list">
