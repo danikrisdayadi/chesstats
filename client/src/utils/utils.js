@@ -12,6 +12,7 @@ export const chartGrey = "rgba(98, 97, 95, 0.5)";
 export const chartGreyBg = "rgb(98, 97, 95, 0.2)";
 export const chartBody = "rgb(169, 132, 103)";
 export const chartBodyBg = "rgba(169, 132, 103, 0.2)";
+export const transparent = "rgba(0,0,0,0)";
 
 export function WinProbabilityCalculator(elo1, elo2) {
   return round(Math.abs(elo1 - elo2) / (elo1) * 100, 2);
@@ -45,15 +46,24 @@ export const SuccessButton = styled(Button)(() => ({
 export const FeedbackButton = styled(Button)(() => ({
   color: "#fff",
   textTransform: 'none',
-  backgroundColor: "rgba(0,0,0,0)",
+  backgroundColor: transparent,
   border: '1px solid',
   borderColor: colors.whiteYellow,
   '&:hover': {
     backgroundColor: "rgba(255,255,255,0.1)",
     borderColor: hexToRGB(colors.whiteYellow, 0.7)
   },
-  '&:focus': {
-    color: "#fff",
-  },
+}));
 
+export const AccountButton = styled(Button)(() => ({
+  borderRadius: "10px",
+  textTransform: 'none',
+  fontWeight: "normal",
+  backgroundColor: transparent,
+  '&:hover': {
+    backgroundColor: transparent,
+  },
+  '&:focus': {
+    color: hexToRGB(colors.theme, 0.2),
+  },
 }));

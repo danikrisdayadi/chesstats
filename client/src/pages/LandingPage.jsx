@@ -1,7 +1,7 @@
-import { Avatar, Container, Divider, Stack, Grid } from "@mui/material";
+import { Avatar, Button, Container, Divider, Stack, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import { PaddingY } from "../components/Spacing";
-import { SuccessButton, FeedbackButton } from "../utils/utils";
+import { SuccessButton, FeedbackButton, AccountButton } from "../utils/utils";
 import { useNavigate } from "react-router-dom";
 
 import "./LandingPage.scss";
@@ -59,15 +59,17 @@ function LandingPage() {
         <Container>
           <Grid container>
             {featuredAccounts.map((account, index) => (
-              <Grid item xs={6} sm={6} md={3} key={index}>
-                <Stack alignItems="center" className="stack">
-                  <Avatar
-                    alt={account.name}
-                    src="/static/images/avatar/1.jpg"
-                    sx={{ width: "60px", height: "60px" }}
-                  />
-                  <p>{account.name}</p>
-                </Stack>
+              <Grid item xs={6} md={3} key={index}>
+                <AccountButton onClick={() => navigate("/compare")}>
+                  <Stack alignItems="center" className="stack">
+                    <Avatar
+                      alt={account.name}
+                      src="/static/images/avatar/1.jpg"
+                      sx={{ width: "60px", height: "60px" }}
+                    />
+                    <p>{account.name}</p>
+                  </Stack>
+                </AccountButton>
               </Grid>
             ))}
           </Grid>
