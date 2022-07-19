@@ -106,9 +106,9 @@ function ResultsPage() {
           </Stack>
         </Grid>
       </Grid>
-      <Grid container>
+      <Grid container alignItems="center">
         <Grid item xs={6} md={4}>
-          <h1>Win Probability:</h1>
+          <h3>Win Probability:</h3>
         </Grid>
         <Grid item xs={6} md={4} align="center">
           <h1>
@@ -166,9 +166,7 @@ function ProfileStack({ apiData, timeControl }) {
         </p>
       </div>
       <div className="data-list">
-        <p>
-          {apiData ? apiData["tactics"]["highest"]["rating"] : "loading..."}
-        </p>
+        <p>{apiData ? apiData["tactics"] : "loading..."}</p>
       </div>
     </Stack>
   );

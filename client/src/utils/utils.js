@@ -104,7 +104,7 @@ export function formatUserData(userData, username) {
       winPercentage: (userData?.chess_rapid?.record?.win || 0) / Math.max(rapidTotalGames, 1),
       totalGames: rapidTotalGames
     },
-    tactics: userData?.tactics,
+    tactics: userData?.tactics?.highest?.rating || 0,
   };
 }
 
@@ -113,7 +113,7 @@ export function formatStats(apiData, timeControl) {
     return;
   }
 
-  const maxRating = 3050;
+  const maxRating = 3000;
   const maxTactics = 3500;
   const currUserData = apiData.currUserData[timeControl];
   const otherUserData = apiData.otherUserData[timeControl];
@@ -122,14 +122,14 @@ export function formatStats(apiData, timeControl) {
     currUserData.bestRating / maxRating,
     currUserData.winPercentage,
     currUserData.totalGames / Math.max(currUserData.totalGames, otherUserData.totalGames),
-    (apiData.currUserData["tactics"]["highest"]["rating"]) / maxTactics,
+    (apiData.currUserData["tactics"]) / maxTactics,
   ],
   [
     otherUserData.currentRating / maxRating,
     otherUserData.bestRating / maxRating,
     otherUserData.winPercentage,
     otherUserData.totalGames / Math.max(currUserData.totalGames, otherUserData.totalGames),
-    (apiData.otherUserData["tactics"]["highest"]["rating"]) / maxTactics,
+    (apiData.otherUserData["tactics"]) / maxTactics,
   ],
   ];
 }

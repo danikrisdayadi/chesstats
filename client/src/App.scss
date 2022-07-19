@@ -19,6 +19,7 @@ h2 {
 h3 {
   font-family: "Roboto";
   font-size: clamp(20px, 4vw, 24px);
+  color: colors.$theme;
 }
 
 h4 {
