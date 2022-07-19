@@ -1,7 +1,7 @@
 import { Avatar, Button, Container, Divider, Stack, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import { PaddingY } from "../components/Spacing";
-import { ColorButton, SuccessButton, FeedbackButton } from "../utils/utils";
+import { SuccessButton, FeedbackButton } from "../utils/utils";
 import "./LandingPage.scss";
 
 function LandingPage() {
@@ -38,9 +38,9 @@ function LandingPage() {
           </p>
         </Box>
         <PaddingY padding={"2vh"} />
-        <ColorButton sx={{ padding: "12px 50px" }}>
+        <SuccessButton sx={{ padding: "12px 50px" }}>
           Start Comparing!
-        </ColorButton>
+        </SuccessButton>
         <PaddingY padding={"3vh"} />
 
         <Divider className="divider">or</Divider>
@@ -79,9 +79,6 @@ function LandingPage() {
           </p>
           <PaddingY padding={"2vh"} />
           <FeedbackButton>Test</FeedbackButton>
-          <Button variant="outlined" size="large">
-            Suggestion Form
-          </Button>
           <PaddingY padding={"5vh"} />
         </Container>
       </div>

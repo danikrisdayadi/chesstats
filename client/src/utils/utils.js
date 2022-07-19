@@ -21,7 +21,19 @@ function round(num, places) {
   return +(Math.round(num + "e+" + places) + "e-" + places);
 }
 
-export const ColorButton = styled(Button)(() => ({
+export function hexToRGB(hex, alpha) {
+  const r = parseInt(hex.slice(1, 3), 16),
+    g = parseInt(hex.slice(3, 5), 16),
+    b = parseInt(hex.slice(5, 7), 16);
+
+  if (alpha) {
+    return `rgba(${r},${g},${b},${alpha})`;
+  } else {
+    return `rgb(${r},${g},${b})`;
+  }
+}
+
+export const SuccessButton = styled(Button)(() => ({
   color: "#fff",
   textTransform: 'none',
   backgroundColor: colors.cta,
@@ -35,8 +47,9 @@ export const FeedbackButton = styled(Button)(() => ({
   textTransform: 'none',
   backgroundColor: "rgba(0,0,0,0)",
   border: '1px solid',
-  borderColor: '#0063cc',
+  borderColor: colors.whiteYellow,
   '&:hover': {
-    backgroundColor: "rgba(0,0,0,0.1)",
+    backgroundColor: "rgba(0,0,0,0.05)",
+    borderColor: hexToRGB(colors.whiteYellow, 0.7)
   },
 }));
