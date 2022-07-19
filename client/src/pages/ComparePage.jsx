@@ -1,8 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import { Button, Container, Grid, Paper, TextField } from "@mui/material";
 import { PaddingY } from "../components/Spacing";
+import { SuccessButton } from "../utils/utils";
 import "./ComparePage.scss";
+import { useState } from "react";
 
 function ComparePage() {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("blank");
+  const handleClick = () => {
+    navigate(`/compare/${username}`);
+  };
+
   return (
     <Grid
       container
@@ -19,20 +28,28 @@ function ComparePage() {
             We noticed that we do not have your chess.com data. Please input
             your chess.com username below to continue
           </p>
-          <PaddingY padding={"2vh"} />
-          <Container>
-            <Grid container>
-              <Grid item xs={9} sm={10} justifyContent="flex-end">
+          <PaddingY padding={"1vh"} />
+          <Container maxWidth="md">
+            <Grid container alignItems="center" columnSpacing={1}>
+              <Grid item xs={0} sm={1} />
+              <Grid item xs={8} sm={8}>
                 <TextField
                   fullWidth
                   id="outlined-basic"
                   label="Username"
                   variant="outlined"
+                  onChange={event => setUsername(event.target.value)}
                 />
               </Grid>
               <Grid item xs={3} sm={2}>
-                <Button>Enter</Button>
+                <SuccessButton
+                  sx={{ padding: "15px", width: "100%" }}
+                  onClick={handleClick}
+                >
+                  Submit
+                </SuccessButton>
               </Grid>
+              <Grid item xs={0} sm={1} />
             </Grid>
           </Container>
           <PaddingY padding={"5vh"} />
