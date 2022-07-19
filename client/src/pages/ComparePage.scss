@@ -7,10 +7,13 @@
 
 .username-box {
   background-color: colors.$white-yellow;
-  min-width: fit-content;
-  width: 50vw;
+  border-radius: 10px;
 }
 
 .username-box p {
   width: 80%;
+}
+
+.username-box img {
+  height: 4vh;
 }
