@@ -14,8 +14,17 @@ export const chartBody = "rgb(169, 132, 103)";
 export const chartBodyBg = "rgba(169, 132, 103, 0.2)";
 export const transparent = "rgba(0,0,0,0)";
 
-export function WinProbabilityCalculator(elo1, elo2) {
-  return round(Math.abs(elo1 - elo2) / (elo1) * 100, 2);
+export function WinProbabilityCalculator(apiData, timeControl) {
+  if (apiData?.currUserData === undefined) {
+    return;
+  }
+
+  const currUserData = apiData.currUserData[timeControl].currentRating;
+  const otherUserData = apiData.otherUserData[timeControl].currentRating;
+
+  const diff = currUserData - otherUserData;
+  const calc = 1 / (1 + 10 ** (-diff / 400));
+  return round(calc * 100, 2);
 }
 
 export function round(num, places) {

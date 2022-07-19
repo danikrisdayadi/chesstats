@@ -9,8 +9,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getStats } from "../utils/apiRequests";
 
 function ResultsPage() {
-  const [timeControl, setTimeControl] = useState("bullet");
   const { username, otherUsername } = useParams();
+  const [timeControl, setTimeControl] = useState("bullet");
   const [apiData, setApiData] = useState({});
   const [graphData, setGraphData] = useState(undefined);
 
@@ -111,7 +111,12 @@ function ResultsPage() {
           <h1>Win Probability:</h1>
         </Grid>
         <Grid item xs={6} md={4} align="center">
-          <h1>{utils.WinProbabilityCalculator(1500, 1600)}%</h1>
+          <h1>
+            {apiData
+              ? utils.WinProbabilityCalculator(apiData, timeControl)
+              : 0.0}
+            %
+          </h1>
         </Grid>
       </Grid>
       <Stack
