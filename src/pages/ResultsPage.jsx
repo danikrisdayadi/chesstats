@@ -1,8 +1,16 @@
-import { Button, Container, Grid, Stack, Divider, Dialog } from "@mui/material";
+import {
+  Button,
+  Container,
+  Grid,
+  Stack,
+  Divider,
+  Dialog,
+  Avatar,
+} from "@mui/material";
 import { useScreenshot, createFileName } from "use-react-screenshot";
 import React, { createRef, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getStats } from "../utils/apiRequests";
+import { getProfilePicture, getStats } from "../utils/apiRequests";
 import { NormalButton, SuccessButton } from "../utils/utils";
 import { PaddingY } from "../components/Spacing";
 import ResultsRadarChart from "../components/ResultsRadarChart";
@@ -18,10 +26,12 @@ function ResultsPage() {
   const [timeControl, setTimeControl] = useState("bullet");
   const [apiData, setApiData] = useState({});
   const [graphData, setGraphData] = useState(undefined);
+  const [profilePicture, setProfilePicture] = useState([]);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     getStats(username, otherUsername).then(d => setApiData(d));
+    getProfilePicture(username, otherUsername).then(d => setProfilePicture(d));
   }, [username, otherUsername]);
 
   useEffect(() => {
@@ -38,15 +48,20 @@ function ResultsPage() {
     setOpen(true);
   };
 
-  const download = (image, { name = "img", extension = "jpg" } = {}) => {
+  const download = (
+    image,
+    { name = "chesstats_screenshot", extension = "jpg" } = {}
+  ) => {
     const a = document.createElement("a");
     a.href = image;
     a.download = createFileName(extension, name);
     a.click();
   };
+
   const downloadScreenshot = () => takeScreenShot(ref.current).then(download);
   const navigate = useNavigate();
 
+  console.log(profilePicture);
   return (
     <Container maxWidth="xl">
       <Dialog
@@ -114,6 +129,7 @@ function ResultsPage() {
             <ProfileStack
               apiData={apiData.currUserData}
               timeControl={timeControl}
+              profilePicture={profilePicture[0]}
             />
           </Grid>
           <Grid item xs={6} sm={6} md={4} align="center">
@@ -142,6 +158,7 @@ function ResultsPage() {
             <ProfileStack
               apiData={apiData.otherUserData}
               timeControl={timeControl}
+              profilePicture={profilePicture[1]}
             />
           </Grid>
           <Grid item xs={6} sm={6} md={1}>
@@ -209,11 +226,11 @@ function ResultsPage() {
   );
 }
 
-function ProfileStack({ apiData, timeControl }) {
+function ProfileStack({ apiData, timeControl, profilePicture }) {
   return (
     <Stack align="center">
       <Stack sx={{ height: "30vh" }} alignItems="center">
-        <img src="/chesstats_logo.png" alt="Avatar" className="profile-logo" />
+        <Avatar alt="Avatar" src={profilePicture} className="profile-logo" />
         <h2>{apiData ? apiData.username : "loading..."}</h2>
       </Stack>
       <div className="data-list">
