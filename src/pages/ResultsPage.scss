@@ -13,9 +13,9 @@
 
 .bar-container {
   position: relative;
-  height: 40px;
-  width: 255px;
-  padding: 5px 0px;
+  height: 30px;
+  width: 300px;
+  padding: 10px 0px;
 }
 
 .data-list {
@@ -23,4 +23,11 @@
   margin: 0;
   vertical-align: middle;
   display: table-cell;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.data-list p {
+  margin: 0;
 }
