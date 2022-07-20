@@ -3,7 +3,7 @@ import {
   Container,
   Grid,
   Stack,
-  Paper,
+  Divider,
   Dialog,
   TextField,
 } from "@mui/material";
@@ -55,23 +55,39 @@ function ResultsPage() {
 
   return (
     <Container maxWidth="xl">
-      <Dialog open={open} onClose={() => setOpen(false)} closeAfterTransition>
-        <Container align="center">
+      <Dialog
+        open={open}
+        onClose={() => setOpen(false)}
+        closeAfterTransition
+        maxWidth="sm"
+      >
+        <Container align="center" className="dialog-container">
           <PaddingY padding={"2vh"} />
-          <h3>Share your Chesstats!</h3>
+          <h3 style={{ margin: 0 }}>Share your Chesstats!</h3>
           <p>
-            Either click to download the screenshot, or share the result's URL!
+            Either share by downloading a screenshot, or using the result URL
           </p>
-          <img width={"100%"} src={image} alt={"ScreenShot"}></img>
-          <NormalButton
-            sx={{ padding: "10px 40px" }}
-            onClick={downloadScreenshot}
-          >
-            Download Screenshot
-          </NormalButton>
+          <PaddingY padding={"1vh"} />
+
+          <Stack alignItems="center" spacing={3}>
+            <img
+              src={image}
+              alt={"ScreenShot"}
+              className="screenshot-img"
+            ></img>
+            <NormalButton
+              sx={{ padding: "10px 40px" }}
+              onClick={downloadScreenshot}
+            >
+              Download
+            </NormalButton>
+          </Stack>
+          <PaddingY padding={"1vh"} />
+          <Divider className="divider">or</Divider>
+          <PaddingY padding={"1vh"} />
 
           <Grid container alignItems="center" columnSpacing={1}>
-            <Grid item xs={8} sm={10} justifyContent="flex-end">
+            <Grid item xs={9} sm={10} justifyContent="flex-end">
               <TextField
                 fullWidth
                 variant="filled"

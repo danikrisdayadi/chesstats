@@ -37,3 +37,11 @@
 .screenshot-div {
   background-color: colors.$shade-1;
 }
+
+.screenshot-img {
+  width: clamp(0px, 80%, 600px);
+}
+
+.dialog-box {
+  background-color: colors.$white-yellow;
+}
