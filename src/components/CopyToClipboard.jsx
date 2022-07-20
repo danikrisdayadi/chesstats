@@ -2,11 +2,11 @@ import { Button, Grid, TextField, Snackbar, Alert } from "@mui/material";
 import React, { useState } from "react";
 import copy from "copy-to-clipboard";
 
-function CopyToClipboard() {
+function CopyToClipboard({ text }) {
   const [copyState, setCopyState] = useState(false);
 
   const copyToClipboard = () => {
-    copy(window.location.href);
+    copy(text);
     setCopyState(true);
   };
 
@@ -28,7 +28,7 @@ function CopyToClipboard() {
             InputProps={{
               readOnly: true,
             }}
-            defaultValue={`${window.location.href}`}
+            defaultValue={text}
             label="Share link"
           />
         </Grid>

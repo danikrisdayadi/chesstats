@@ -78,7 +78,7 @@ function ResultsPage() {
           <PaddingY padding={"1vh"} />
           <Divider className="divider">or</Divider>
           <PaddingY padding={"1vh"} />
-          <CopyToClipboard />
+          <CopyToClipboard text={`${window.location.href}`} />
           <PaddingY padding={"2vh"} />
         </Container>
       </Dialog>
