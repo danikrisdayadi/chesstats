@@ -6,23 +6,27 @@ function ResultsRadarChart({
   stats = [
     [0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
   ],
 }) {
+  const chartLabels = ["Current", "Highest", "W/L", "Total Games", "Tactics"];
+
   const data = {
-    labels: ["Current", "Highest", "W/L", "Total Games", "Tactics"],
+    labels: chartLabels,
     datasets: [
       {
-        label: users[0]?.username,
+        label: `${users[0]?.username},${stats[2]}`,
         data: stats[0],
-        backgroundColor: utils.chartRedBg,
-        borderColor: utils.chartRed,
+        backgroundColor: utils.chartGreenBg,
+        borderColor: utils.chartGreen,
         borderWidth: 1,
       },
       {
-        label: users[1]?.username,
+        label: `${users[1]?.username},${stats[3]}`,
         data: stats[1],
-        backgroundColor: utils.chartGreenBg,
-        borderColor: utils.chartGreen,
+        backgroundColor: utils.chartRedBg,
+        borderColor: utils.chartRed,
         borderWidth: 1,
       },
     ],
@@ -31,6 +35,40 @@ function ResultsRadarChart({
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          generateLabels: function (chart) {
+            var data = chart.data;
+            var legends = Array.isArray(data.datasets)
+              ? data.datasets.map(function (dataset, i) {
+                  return {
+                    text: dataset.label.split(",")[0],
+                    fillStyle: !Array.isArray(dataset.backgroundColor)
+                      ? dataset.backgroundColor
+                      : dataset.backgroundColor[0],
+                    hidden: !chart.isDatasetVisible(i),
+                    lineCap: dataset.borderCapStyle,
+                    lineDash: dataset.borderDash,
+                    lineDashOffset: dataset.borderDashOffset,
+                    lineJoin: dataset.borderJoinStyle,
+                    lineWidth: dataset.borderWidth,
+                    strokeStyle: dataset.borderColor,
+                    pointStyle: dataset.pointStyle,
+                    datasetIndex: i,
+                  };
+                }, this)
+              : [];
+            return legends;
+          },
+        },
+      },
+      tooltip: {
+        callbacks: {
+          label: context => {
+            const dataset = context.dataset.label.split(",");
+            const labelIndex = chartLabels.indexOf(context.label);
+            return `${dataset[0]}: ${dataset[labelIndex + 1]}`;
+          },
+        },
       },
     },
     scales: {

@@ -26,9 +26,9 @@ function ResultsBarChart({ label, stats }) {
       legend: {
         display: false,
       },
-      tooltips: {
+      tooltip: {
         callbacks: {
-          label: "YEYEYEY",
+          label: context => context.dataset.label,
         },
       },
     },
@@ -39,15 +39,15 @@ function ResultsBarChart({ label, stats }) {
     datasets: [
       {
         type: "bar",
-        label: "Rating",
-        data: stats[0] > stats[1] ? [-stats[0][0]] : stats[1],
+        label: stats[0] > stats[1] ? stats[2] : stats[3],
+        data: stats[0] > stats[1] ? [-stats[0]] : [stats[1]],
         borderColor: utils.chartGreen,
         backgroundColor: utils.chartGreenBg,
       },
       {
         type: "bar",
-        label: "Rating",
-        data: stats[0] > stats[1] ? stats[1] : [-stats[0][0]],
+        label: stats[0] > stats[1] ? stats[3] : stats[2],
+        data: stats[0] > stats[1] ? [stats[1]] : [-stats[0]],
         borderColor: utils.chartGrey,
         backgroundColor: utils.chartGreyBg,
       },

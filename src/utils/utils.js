@@ -141,5 +141,20 @@ export function formatStats(apiData, timeControl) {
     otherUserData.totalGames / Math.max(currUserData.totalGames, otherUserData.totalGames),
     (apiData.otherUserData["tactics"]) / maxTactics,
   ],
+  [
+    currUserData.currentRating,
+    currUserData.bestRating,
+
+    `${round(currUserData.winPercentage * 100, 2)}%`,
+    currUserData.totalGames,
+    apiData.currUserData["tactics"]
+  ],
+  [
+    otherUserData.currentRating,
+    otherUserData.bestRating,
+    `${round(otherUserData.winPercentage * 100, 3)}%`,
+    otherUserData.totalGames,
+    apiData.otherUserData["tactics"]
+  ]
   ];
 }

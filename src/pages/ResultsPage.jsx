@@ -125,11 +125,13 @@ function ResultsPage() {
             {Array.from(Array(5).keys()).map(index => {
               const currStats = graphData ? graphData[0][index] : 0;
               const otherStats = graphData ? graphData[1][index] : 0;
+              const currLabel = graphData ? graphData[2][index] : 0;
+              const otherLabel = graphData ? graphData[3][index] : 0;
               return (
                 <div className="bar-container" key={index}>
                   <ResultsBarChart
                     label=""
-                    stats={[[currStats], [otherStats]]}
+                    stats={[currStats, otherStats, currLabel, otherLabel]}
                   />
                 </div>
               );
