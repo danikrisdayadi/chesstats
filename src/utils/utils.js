@@ -52,6 +52,15 @@ export const SuccessButton = styled(Button)(() => ({
   },
 }));
 
+export const NormalButton = styled(Button)(() => ({
+  color: "#fff",
+  textTransform: 'none',
+  backgroundColor: colors.body,
+  '&:hover': {
+    backgroundColor: colors.theme,
+  },
+}));
+
 export const FeedbackButton = styled(Button)(() => ({
   color: "#fff",
   textTransform: 'none',

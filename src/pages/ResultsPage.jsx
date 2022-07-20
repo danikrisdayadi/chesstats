@@ -3,9 +3,10 @@ import { PaddingY } from "../components/Spacing";
 import ResultsRadarChart from "../components/ResultsRadarChart";
 import ResultsBarChart from "../components/ResultsBarChart";
 import * as utils from "../utils/utils";
+import { NormalButton, SuccessButton } from "../utils/utils";
 import "./ResultsPage.scss";
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getStats } from "../utils/apiRequests";
 
 function ResultsPage() {
@@ -16,7 +17,7 @@ function ResultsPage() {
 
   useEffect(() => {
     getStats(username, otherUsername).then(d => setApiData(d));
-  }, []);
+  }, [username, otherUsername]);
 
   useEffect(() => {
     setGraphData(utils.formatStats(apiData, timeControl));
@@ -114,19 +115,21 @@ function ResultsPage() {
           <h1>
             {apiData
               ? utils.WinProbabilityCalculator(apiData, timeControl)
-              : 0.0}
+              : "0.00"}
             %
           </h1>
         </Grid>
       </Grid>
       <Stack
         direction="row"
-        spacing={4}
+        spacing={3}
         sx={{ width: "100%" }}
         justifyContent="center"
       >
-        <Button variant="outlined">Share</Button>
-        <Button variant="outlined">Compare</Button>
+        <NormalButton sx={{ padding: "10px 40px" }}>Share</NormalButton>
+        <SuccessButton sx={{ padding: "10px 20px" }}>
+          Compare another user
+        </SuccessButton>
       </Stack>
     </Container>
   );
