@@ -1,7 +1,7 @@
 import { Button, Container, Grid, Stack, Divider, Dialog } from "@mui/material";
 import { useScreenshot, createFileName } from "use-react-screenshot";
 import React, { createRef, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getStats } from "../utils/apiRequests";
 import { NormalButton, SuccessButton } from "../utils/utils";
 import { PaddingY } from "../components/Spacing";
@@ -45,6 +45,7 @@ function ResultsPage() {
     a.click();
   };
   const downloadScreenshot = () => takeScreenShot(ref.current).then(download);
+  const navigate = useNavigate();
 
   return (
     <Container maxWidth="xl">
@@ -197,7 +198,10 @@ function ResultsPage() {
         <NormalButton sx={{ padding: "10px 40px" }} onClick={getImage}>
           Share
         </NormalButton>
-        <SuccessButton sx={{ padding: "10px 20px" }}>
+        <SuccessButton
+          sx={{ padding: "10px 20px" }}
+          onClick={() => navigate(`/compare/${username}`)}
+        >
           Compare another user
         </SuccessButton>
       </Stack>

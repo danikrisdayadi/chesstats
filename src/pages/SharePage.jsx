@@ -37,10 +37,10 @@ function SharePage() {
             <img src="/chesstats_navbar_logo.png" alt="logo" className="logo" />
             <h2>Start Comparing!</h2>
             <p>
-              To start comparing, either share your profile link or input
-              another person's chess.com username!
+              Compare by sharing your chesstats link or input another person's
+              chess.com username!
             </p>
-            <PaddingY padding={"2vh"} />
+            <PaddingY padding={"1vh"} />
 
             <Container maxWidth="md">
               <CopyToClipboard text={`testvalue`} />
