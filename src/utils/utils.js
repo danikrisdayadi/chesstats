@@ -122,10 +122,11 @@ export function formatStats(apiData, timeControl) {
     return;
   }
 
-  const maxRating = 3000;
-  const maxTactics = 3500;
   const currUserData = apiData.currUserData[timeControl];
   const otherUserData = apiData.otherUserData[timeControl];
+  const maxRating = Math.max(3000, currUserData.bestRating, otherUserData.bestRating);
+  const maxTactics = Math.max(3500, apiData.currUserData["tactics"], apiData.otherUserData["tactics"]);
+
   return [[
     currUserData.currentRating / maxRating,
     currUserData.bestRating / maxRating,

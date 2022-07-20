@@ -35,14 +35,14 @@ function ResultsBarChart({ label, stats }) {
       {
         type: "bar",
         label: "Rating",
-        data: stats[0] > stats[1] ? [-stats[0]] : [stats[1]],
+        data: stats[0] > stats[1] ? [-stats[0][0]] : stats[1],
         borderColor: utils.chartGreen,
         backgroundColor: utils.chartGreenBg,
       },
       {
         type: "bar",
         label: "Rating",
-        data: stats[0] > stats[1] ? [stats[1]] : [-stats[0]],
+        data: stats[0] > stats[1] ? stats[1] : [-stats[0][0]],
         borderColor: utils.chartGrey,
         backgroundColor: utils.chartGreyBg,
       },

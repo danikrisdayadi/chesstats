@@ -65,10 +65,7 @@ function ResultsPage() {
             const otherStats = graphData ? graphData[1][index] : 0;
             return (
               <div className="bar-container" key={index}>
-                <ResultsBarChart
-                  label="ELO rating"
-                  stats={[[currStats], [otherStats]]}
-                />
+                <ResultsBarChart label="" stats={[[currStats], [otherStats]]} />
               </div>
             );
           })}
