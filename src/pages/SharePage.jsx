@@ -43,7 +43,12 @@ function SharePage() {
             <PaddingY padding={"1vh"} />
 
             <Container maxWidth="md">
-              <CopyToClipboard text={`testvalue`} />
+              <CopyToClipboard
+                text={`${window.location.href.substring(
+                  0,
+                  window.location.href.indexOf("compare")
+                )}share/${username}`}
+              />
             </Container>
             <PaddingY padding={"2vh"} />
             <Divider className="divider">or</Divider>
