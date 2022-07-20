@@ -6,9 +6,12 @@ import {
   Divider,
   Dialog,
   TextField,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import { useScreenshot, createFileName } from "use-react-screenshot";
 import React, { createRef, useState, useEffect } from "react";
+import copy from "copy-to-clipboard";
 import { useParams } from "react-router-dom";
 import { getStats } from "../utils/apiRequests";
 import { NormalButton, SuccessButton } from "../utils/utils";
@@ -20,13 +23,22 @@ import * as utils from "../utils/utils";
 import "./ResultsPage.scss";
 
 function ResultsPage() {
+  const ref = createRef(null);
   const { username, otherUsername } = useParams();
   const [timeControl, setTimeControl] = useState("bullet");
   const [apiData, setApiData] = useState({});
   const [graphData, setGraphData] = useState(undefined);
   const [open, setOpen] = useState(false);
+  const [copyState, setCopyState] = useState(false);
 
-  const ref = createRef(null);
+  useEffect(() => {
+    getStats(username, otherUsername).then(d => setApiData(d));
+  }, [username, otherUsername]);
+
+  useEffect(() => {
+    setGraphData(utils.formatStats(apiData, timeControl));
+  }, [apiData, timeControl]);
+
   const [image, takeScreenShot] = useScreenshot({
     type: "image/jpeg",
     quality: 1.0,
@@ -45,13 +57,19 @@ function ResultsPage() {
   };
   const downloadScreenshot = () => takeScreenShot(ref.current).then(download);
 
-  useEffect(() => {
-    getStats(username, otherUsername).then(d => setApiData(d));
-  }, [username, otherUsername]);
+  const copyToClipboard = () => {
+    copy(window.location.href);
+    setCopyState(true);
+  };
 
-  useEffect(() => {
-    setGraphData(utils.formatStats(apiData, timeControl));
-  }, [apiData, timeControl]);
+  const handleCloseSnackbar = (event, reason) => {
+    console.log(reason);
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setCopyState(false);
+  };
 
   return (
     <Container maxWidth="xl">
@@ -99,7 +117,11 @@ function ResultsPage() {
               />
             </Grid>
             <Grid item xs={3} sm={2}>
-              <Button size="large" sx={{ padding: "15px", width: "100%" }}>
+              <Button
+                size="large"
+                sx={{ padding: "15px", width: "100%" }}
+                onClick={copyToClipboard}
+              >
                 Copy
               </Button>
             </Grid>
@@ -107,6 +129,20 @@ function ResultsPage() {
           <PaddingY padding={"2vh"} />
         </Container>
       </Dialog>
+
+      <Snackbar
+        open={copyState}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+      >
+        <Alert
+          onClose={handleCloseSnackbar}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          Successfully Copied to Clipboard!
+        </Alert>
+      </Snackbar>
 
       <div ref={ref} className="screenshot-div">
         <Container align="center">
