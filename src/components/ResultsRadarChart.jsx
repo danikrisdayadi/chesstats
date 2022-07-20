@@ -2,24 +2,25 @@ import { Radar } from "react-chartjs-2";
 import * as utils from "../utils/utils";
 
 function ResultsRadarChart({
-  usernames,
+  users,
   stats = [
     [0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0],
   ],
 }) {
+  console.log(users);
   const data = {
     labels: ["Current", "Highest", "W/L", "Total Games", "Tactics"],
     datasets: [
       {
-        label: usernames[0],
+        label: users[0]?.username,
         data: stats[0],
         backgroundColor: utils.chartRedBg,
         borderColor: utils.chartRed,
         borderWidth: 1,
       },
       {
-        label: usernames[1],
+        label: users[1]?.username,
         data: stats[1],
         backgroundColor: utils.chartGreenBg,
         borderColor: utils.chartGreen,

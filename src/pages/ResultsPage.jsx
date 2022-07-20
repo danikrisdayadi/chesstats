@@ -55,7 +55,10 @@ function ResultsPage() {
         </Grid>
         <Grid item xs={6} sm={6} md={4} align="center">
           <div className="chart-container">
-            <ResultsRadarChart usernames={["Dani", "Adam"]} stats={graphData} />
+            <ResultsRadarChart
+              users={[apiData.currUserData, apiData.otherUserData]}
+              stats={graphData}
+            />
           </div>
           {Array.from(Array(5).keys()).map(index => {
             const currStats = graphData ? graphData[0][index] : 0;
