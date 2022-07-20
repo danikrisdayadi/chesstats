@@ -8,7 +8,6 @@ function ResultsRadarChart({
     [0, 0, 0, 0, 0],
   ],
 }) {
-  console.log(users);
   const data = {
     labels: ["Current", "Highest", "W/L", "Total Games", "Tactics"],
     datasets: [

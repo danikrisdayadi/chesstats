@@ -26,6 +26,11 @@ function ResultsBarChart({ label, stats }) {
       legend: {
         display: false,
       },
+      tooltips: {
+        callbacks: {
+          label: "YEYEYEY",
+        },
+      },
     },
   };
 

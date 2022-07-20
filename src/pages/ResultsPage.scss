@@ -1,3 +1,5 @@
+@use "../styles/colors";
+
 .profile-logo {
   object-fit: cover;
   border-radius: 50%;
@@ -30,4 +32,8 @@
 
 .data-list p {
   margin: 0;
+}
+
+.screenshot-div {
+  background-color: colors.$shade-1;
 }
