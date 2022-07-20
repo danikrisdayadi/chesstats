@@ -1,23 +1,13 @@
-import {
-  Button,
-  Container,
-  Grid,
-  Stack,
-  Divider,
-  Dialog,
-  TextField,
-  Snackbar,
-  Alert,
-} from "@mui/material";
+import { Button, Container, Grid, Stack, Divider, Dialog } from "@mui/material";
 import { useScreenshot, createFileName } from "use-react-screenshot";
 import React, { createRef, useState, useEffect } from "react";
-import copy from "copy-to-clipboard";
 import { useParams } from "react-router-dom";
 import { getStats } from "../utils/apiRequests";
 import { NormalButton, SuccessButton } from "../utils/utils";
 import { PaddingY } from "../components/Spacing";
 import ResultsRadarChart from "../components/ResultsRadarChart";
 import ResultsBarChart from "../components/ResultsBarChart";
+import CopyToClipboard from "../components/CopyToClipboard";
 import * as utils from "../utils/utils";
 
 import "./ResultsPage.scss";
@@ -29,7 +19,6 @@ function ResultsPage() {
   const [apiData, setApiData] = useState({});
   const [graphData, setGraphData] = useState(undefined);
   const [open, setOpen] = useState(false);
-  const [copyState, setCopyState] = useState(false);
 
   useEffect(() => {
     getStats(username, otherUsername).then(d => setApiData(d));
@@ -56,20 +45,6 @@ function ResultsPage() {
     a.click();
   };
   const downloadScreenshot = () => takeScreenShot(ref.current).then(download);
-
-  const copyToClipboard = () => {
-    copy(window.location.href);
-    setCopyState(true);
-  };
-
-  const handleCloseSnackbar = (event, reason) => {
-    console.log(reason);
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setCopyState(false);
-  };
 
   return (
     <Container maxWidth="xl">
@@ -103,46 +78,10 @@ function ResultsPage() {
           <PaddingY padding={"1vh"} />
           <Divider className="divider">or</Divider>
           <PaddingY padding={"1vh"} />
-
-          <Grid container alignItems="center" columnSpacing={1}>
-            <Grid item xs={9} sm={10} justifyContent="flex-end">
-              <TextField
-                fullWidth
-                variant="filled"
-                InputProps={{
-                  readOnly: true,
-                }}
-                defaultValue={`${window.location.href}`}
-                label="Share link"
-              />
-            </Grid>
-            <Grid item xs={3} sm={2}>
-              <Button
-                size="large"
-                sx={{ padding: "15px", width: "100%" }}
-                onClick={copyToClipboard}
-              >
-                Copy
-              </Button>
-            </Grid>
-          </Grid>
+          <CopyToClipboard />
           <PaddingY padding={"2vh"} />
         </Container>
       </Dialog>
-
-      <Snackbar
-        open={copyState}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackbar}
-      >
-        <Alert
-          onClose={handleCloseSnackbar}
-          severity="success"
-          sx={{ width: "100%" }}
-        >
-          Successfully Copied to Clipboard!
-        </Alert>
-      </Snackbar>
 
       <div ref={ref} className="screenshot-div">
         <Container align="center">
