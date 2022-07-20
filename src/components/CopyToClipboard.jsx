@@ -1,5 +1,5 @@
 import { Button, Grid, TextField, Snackbar, Alert } from "@mui/material";
-import React, { createRef, useState, useEffect } from "react";
+import React, { useState } from "react";
 import copy from "copy-to-clipboard";
 
 function CopyToClipboard() {
@@ -11,7 +11,6 @@ function CopyToClipboard() {
   };
 
   const handleCloseSnackbar = (event, reason) => {
-    console.log(reason);
     if (reason === "clickaway") {
       return;
     }
