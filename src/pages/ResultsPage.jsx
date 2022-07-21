@@ -39,7 +39,7 @@ function ResultsPage() {
   }, [apiData, timeControl]);
 
   const [image, takeScreenShot] = useScreenshot({
-    type: "image/jpeg",
+    type: "image/png",
     quality: 1.0,
   });
 
@@ -50,7 +50,7 @@ function ResultsPage() {
 
   const download = (
     image,
-    { name = "chesstats_screenshot", extension = "jpg" } = {}
+    { name = "chesstats_screenshot", extension = "png" } = {}
   ) => {
     const a = document.createElement("a");
     a.href = image;
@@ -58,7 +58,8 @@ function ResultsPage() {
     a.click();
   };
 
-  const downloadScreenshot = () => takeScreenShot(ref.current).then(download);
+  const downloadScreenshot = () =>
+    takeScreenShot(ref.current, { useCORS: true }).then(download);
   const navigate = useNavigate();
 
   return (
