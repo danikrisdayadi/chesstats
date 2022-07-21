@@ -1,7 +1,12 @@
 import { Avatar, Container, Divider, Stack, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import { PaddingY } from "../components/Spacing";
-import { SuccessButton, FeedbackButton, AccountButton } from "../utils/utils";
+import {
+  SuccessButton,
+  FeedbackButton,
+  AccountButton,
+  NormalButton,
+} from "../utils/utils";
 import { useNavigate } from "react-router-dom";
 import "./LandingPage.scss";
 
@@ -44,12 +49,21 @@ function LandingPage() {
           </p>
         </Box>
         <PaddingY padding={"2vh"} />
-        <SuccessButton
-          sx={{ padding: "12px 50px" }}
-          onClick={() => navigate("/compare")}
-        >
-          Start Comparing!
-        </SuccessButton>
+        <Stack direction={"row"} justifyContent="center" spacing={4}>
+          <SuccessButton
+            sx={{ padding: "12px 20px" }}
+            onClick={() => navigate("/others")}
+          >
+            Compare Other Players' Stats
+          </SuccessButton>
+
+          <NormalButton
+            sx={{ padding: "12px 40px" }}
+            onClick={() => navigate("/compare")}
+          >
+            Compare Your Stats
+          </NormalButton>
+        </Stack>
         <PaddingY padding={"3vh"} />
 
         <Divider className="divider">or</Divider>

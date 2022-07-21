@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { CookiesProvider } from 'react-cookie';
+import { useCookies } from "react-cookie";
 import ComparePage from './pages/ComparePage';
 import LandingPage from './pages/LandingPage';
 import Error404Page from './pages/Error404Page';
@@ -36,6 +37,8 @@ ChartJS.register(
 );
 
 function App() {
+  const [cookies] = useCookies(["username"]);
+
   return (
     <div className="app">
       <StyledEngineProvider injectFirst>
@@ -44,11 +47,12 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<LandingPage />} />
-              <Route path="/compare" element={<ComparePage />} />
+              <Route path="/compare" element={cookies.username ? <Navigate to={`/compare/${cookies.username}`} /> : <ComparePage />} />
               <Route path="/compare/:username" element={<SharePage />} />
               <Route path="/compare/:username/:otherUsername" element={<ResultsPage />} />
               <Route path="/share/:sharedUsername" element={<ComparePage />} />
               <Route path="/others" element={<CompareOthersPage />} />
+              <Route path="/relogin" element={<ComparePage />} />
               <Route path="*" element={<Error404Page />} />
             </Routes>
           </BrowserRouter>

@@ -47,7 +47,7 @@ function CompareOthersPage() {
                   <TextField
                     fullWidth
                     id="outlined-basic"
-                    label="First username"
+                    label="First player"
                     variant="outlined"
                     error={!validity}
                     helperText={helperText}
@@ -58,7 +58,7 @@ function CompareOthersPage() {
                   <TextField
                     fullWidth
                     id="outlined-basic"
-                    label="Second username"
+                    label="Second player"
                     variant="outlined"
                     error={!validity}
                     helperText={helperText}

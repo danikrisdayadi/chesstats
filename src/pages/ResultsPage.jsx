@@ -10,6 +10,7 @@ import {
 import { useScreenshot, createFileName } from "use-react-screenshot";
 import React, { createRef, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import { getProfilePicture, getStats } from "../utils/apiRequests";
 import { NormalButton, SuccessButton } from "../utils/utils";
 import { PaddingY } from "../components/Spacing";
@@ -28,6 +29,7 @@ function ResultsPage() {
   const [graphData, setGraphData] = useState(undefined);
   const [profilePicture, setProfilePicture] = useState([]);
   const [open, setOpen] = useState(false);
+  const [cookies] = useCookies(["username"]);
 
   useEffect(() => {
     getStats(username, otherUsername).then(d => setApiData(d));
@@ -217,7 +219,11 @@ function ResultsPage() {
         </NormalButton>
         <SuccessButton
           sx={{ padding: "10px 20px" }}
-          onClick={() => navigate(`/compare/${username}`)}
+          onClick={() =>
+            cookies.username
+              ? navigate(`/compare/${cookies.username}`)
+              : navigate(`/compare/`)
+          }
         >
           Compare another user
         </SuccessButton>

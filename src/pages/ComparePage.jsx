@@ -22,7 +22,7 @@ function ComparePage() {
   const [username, setUsername] = useState(cookies.username);
   const [validity, setValidity] = useState(true);
   const [helperText, setHelperText] = useState("");
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
 
   const handleClick = () => {
     if (username.length > 0) {
@@ -58,10 +58,9 @@ function ComparePage() {
           <img src="/chesstats_navbar_logo.png" alt="logo" className="logo" />
           {cookies.username ? (
             <>
-              <h2>Welcome Back!</h2>
               <p>
-                Please confirm your username below or enter a new one you would
-                like to use!
+                Please enter a new username or confirm your previous saved
+                username
               </p>
             </>
           ) : (

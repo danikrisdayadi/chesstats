@@ -37,7 +37,7 @@ function SharePage() {
             <img src="/chesstats_navbar_logo.png" alt="logo" className="logo" />
             <h2 style={{ marginBottom: 0 }}>Hi {username}!</h2>
             <div className="link">
-              <a href="/compare">Not you?</a>
+              <a href="/relogin">Not you?</a>
             </div>
 
             <p style={{ width: "100%" }}>
