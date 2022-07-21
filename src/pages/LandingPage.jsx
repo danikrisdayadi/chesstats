@@ -24,9 +24,9 @@ function LandingPage() {
       name: "Levy Rozman",
     },
     {
-      profilePicture: "magnus.jpg",
-      username: "MagnusCarlsen",
-      name: "Magnus Carlsen",
+      profilePicture: "qiyu.jpeg",
+      username: "nemsko",
+      name: "Qiyu Zhou",
     },
     {
       profilePicture: "/alexandra.jpg",
