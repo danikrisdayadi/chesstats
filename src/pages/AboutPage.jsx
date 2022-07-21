@@ -8,6 +8,13 @@ function AboutPage() {
     <Container maxWidth="md">
       <h1>About Chesstats</h1>
       <p>
+        Chesstats is a platform designed for chess.com users to be able to
+        compare their statistics with one another. It is built as a summer
+        project by Dani, a Year 4 Undergraduate student studying in National
+        University of Singapore (NUS). It is built using ReactJS and Material
+        UI, amongst many other libraries used.
+      </p>
+      <p>
         Chesstats was born on a bus ride from the National University of
         Singapore (NUS) canteen to the Hostel I lived in. The initial idea was
         for it to conduct a deep analysis to one’s game and compare it with
@@ -15,10 +22,6 @@ function AboutPage() {
         limited to going deep into game analysis, and hence the project was
         scoped down to only include simple statistics you see currently being
         shown.
-      </p>
-      <p>
-        The website is built with ReactJS and Material UI as its main UI
-        library.
       </p>
       <p>
         If you have any feature suggestions or bug reports, please fill in the

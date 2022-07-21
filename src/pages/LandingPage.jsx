@@ -100,9 +100,15 @@ function LandingPage() {
           <PaddingY padding={"2vh"} />
           <h1>About Chesstats</h1>
           <p>
-            Chesstats is a simple summer holiday project to brush up some
-            programming. If you would like to support the website or suggest
-            improvements, do let the developers know using the form below!
+            Chesstats is a platform designed for chess.com users to be able to
+            compare their statistics with one another. It is built as a summer
+            project by a Year 4 Undergraduate student studying in National
+            University of Singapore (NUS). It is built using ReactJS and
+            Material UI, amongst many other libraries used.
+          </p>
+          <p>
+            If you would like to support the website or suggest improvements, do
+            let the developers know using the form below!
           </p>
           <PaddingY padding={"2vh"} />
           <FeedbackButton
