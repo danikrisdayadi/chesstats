@@ -44,7 +44,7 @@ function ResultsPage() {
   });
 
   const getImage = () => {
-    takeScreenShot(ref.current);
+    takeScreenShot(ref.current, { useCORS: true });
     setOpen(true);
   };
 
