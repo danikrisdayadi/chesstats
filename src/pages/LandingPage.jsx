@@ -9,28 +9,24 @@ function LandingPage() {
   const navigate = useNavigate();
   const featuredAccounts = [
     {
-      profilePicture:
-        "https://images.chesscomfiles.com/uploads/v1/user/15448422.90503d66.200x200o.f323efa57fd0.jpeg",
+      profilePicture: "/hikaru.jpg",
       username: "Hikaru",
       name: "Hikaru Nakamura",
     },
     {
-      profilePicture:
-        "https://images.chesscomfiles.com/uploads/v1/user/33945736.5f6fc770.200x200o.23a404f808f9.jpeg",
+      profilePicture: "levy.jpeg",
       username: "GothamChess",
       name: "Levy Rozman",
     },
     {
-      profilePicture:
-        "https://images.chesscomfiles.com/uploads/v1/user/3889224.063b7e6f.200x200o.1c673340f1d1.jpeg",
+      profilePicture: "magnus.jpg",
       username: "MagnusCarlsen",
       name: "Magnus Carlsen",
     },
     {
-      profilePicture:
-        "https://images.chesscomfiles.com/uploads/v1/user/28583276.26b0cd3b.160x160o.fcbeec9a680e.jpeg",
+      profilePicture: "/alexandra.jpg",
       username: "AlexandraBotez",
-      name: "Andrea Botez",
+      name: "Alexandra Botez",
     },
   ];
   return (

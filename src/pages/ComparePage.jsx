@@ -22,7 +22,7 @@ function ComparePage() {
   const [username, setUsername] = useState(cookies.username);
   const [validity, setValidity] = useState(true);
   const [helperText, setHelperText] = useState("");
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
 
   const handleClick = () => {
     if (username.length > 0) {
