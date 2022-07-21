@@ -1,6 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import { Container, Grid, Paper, TextField } from "@mui/material";
+import {
+  Container,
+  Grid,
+  Paper,
+  TextField,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+} from "@mui/material";
 import { PaddingY } from "../components/Spacing";
 import { SuccessButton } from "../utils/utils";
 import "./ComparePage.scss";
@@ -10,13 +18,18 @@ function ComparePage() {
   const navigate = useNavigate();
   const { sharedUsername } = useParams();
   const [cookies, setCookie] = useCookies(["username"]);
+
   const [username, setUsername] = useState(cookies.username);
   const [validity, setValidity] = useState(true);
   const [helperText, setHelperText] = useState("");
+  const [checked, setChecked] = useState(true);
 
   const handleClick = () => {
     if (username.length > 0) {
-      setCookie("username", username, { path: "/" });
+      if (checked) {
+        setCookie("username", username, { path: "/" });
+      }
+
       if (sharedUsername) {
         navigate(`/compare/${username}/${sharedUsername}`);
       } else {
@@ -26,6 +39,10 @@ function ComparePage() {
       setHelperText("Username cannot be blank");
       setValidity(false);
     }
+  };
+
+  const handleChecked = event => {
+    setChecked(event.target.checked);
   };
 
   return (
@@ -59,6 +76,14 @@ function ComparePage() {
                   defaultValue={username}
                   onChange={event => setUsername(event.target.value)}
                 />
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox checked={checked} onChange={handleChecked} />
+                    }
+                    label="Remember me"
+                  />
+                </FormGroup>
               </Grid>
               <Grid item xs={3} sm={2}>
                 <SuccessButton
