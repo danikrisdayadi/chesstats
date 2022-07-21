@@ -9,10 +9,9 @@ import {
 } from "@mui/material";
 import { useScreenshot, createFileName } from "use-react-screenshot";
 import React, { createRef, useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
+import { useParams } from "react-router-dom";
 import { getProfilePicture, getStats } from "../utils/apiRequests";
-import { NormalButton, SuccessButton } from "../utils/utils";
+import { NormalButton } from "../utils/utils";
 import { PaddingY } from "../components/Spacing";
 import ResultsRadarChart from "../components/ResultsRadarChart";
 import ResultsBarChart from "../components/ResultsBarChart";
@@ -29,7 +28,6 @@ function ResultsPage() {
   const [graphData, setGraphData] = useState(undefined);
   const [profilePicture, setProfilePicture] = useState([]);
   const [open, setOpen] = useState(false);
-  const [cookies] = useCookies(["username"]);
 
   useEffect(() => {
     getStats(username, otherUsername).then(d => setApiData(d));
@@ -62,7 +60,6 @@ function ResultsPage() {
 
   const downloadScreenshot = () =>
     takeScreenShot(ref.current, { useCORS: true }).then(download);
-  const navigate = useNavigate();
 
   return (
     <Container maxWidth="xl">
@@ -208,25 +205,10 @@ function ResultsPage() {
           </Grid>
         </Grid>
       </div>
-      <Stack
-        direction="row"
-        spacing={3}
-        sx={{ width: "100%" }}
-        justifyContent="center"
-      >
-        <NormalButton sx={{ padding: "10px 40px" }} onClick={getImage}>
+      <Stack alignItems="center" spacing={2}>
+        <NormalButton sx={{ padding: "10px 50px" }} onClick={getImage}>
           Share
         </NormalButton>
-        <SuccessButton
-          sx={{ padding: "10px 20px" }}
-          onClick={() =>
-            cookies.username
-              ? navigate(`/compare/${cookies.username}`)
-              : navigate(`/compare/`)
-          }
-        >
-          Compare another user
-        </SuccessButton>
       </Stack>
     </Container>
   );
