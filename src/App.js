@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CookiesProvider } from 'react-cookie';
 import ComparePage from './pages/ComparePage';
 import LandingPage from './pages/LandingPage';
 import Error404Page from './pages/Error404Page';
@@ -37,16 +38,18 @@ function App() {
   return (
     <div className="app">
       <StyledEngineProvider injectFirst>
-        <NavigationBar />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/compare" element={<ComparePage />} />
-            <Route path="/compare/:username" element={<SharePage />} />
-            <Route path="/compare/:username/:otherUsername" element={<ResultsPage />} />
-            <Route path="*" element={<Error404Page />} />
-          </Routes>
-        </BrowserRouter>
+        <CookiesProvider>
+          <NavigationBar />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/compare" element={<ComparePage />} />
+              <Route path="/compare/:username" element={<SharePage />} />
+              <Route path="/compare/:username/:otherUsername" element={<ResultsPage />} />
+              <Route path="*" element={<Error404Page />} />
+            </Routes>
+          </BrowserRouter>
+        </CookiesProvider>
       </StyledEngineProvider>
     </div >
   );
