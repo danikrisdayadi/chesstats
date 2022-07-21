@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { Container, Grid, Paper, TextField } from "@mui/material";
 import { PaddingY } from "../components/Spacing";
@@ -8,6 +8,7 @@ import { useState } from "react";
 
 function ComparePage() {
   const navigate = useNavigate();
+  const { sharedUsername } = useParams();
   const [cookies, setCookie] = useCookies(["username"]);
   const [username, setUsername] = useState(cookies.username);
   const [validity, setValidity] = useState(true);
@@ -16,7 +17,11 @@ function ComparePage() {
   const handleClick = () => {
     if (username.length > 0) {
       setCookie("username", username, { path: "/" });
-      navigate(`/compare/${username}`);
+      if (sharedUsername) {
+        navigate(`/compare/${username}/${sharedUsername}`);
+      } else {
+        navigate(`/compare/${username}`);
+      }
     } else {
       setHelperText("Username cannot be blank");
       setValidity(false);
