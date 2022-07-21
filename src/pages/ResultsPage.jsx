@@ -100,8 +100,7 @@ function ResultsPage() {
 
       <div ref={ref} className="screenshot-div">
         <Container align="center">
-          <h2>Chesstats.co Results</h2>
-          <PaddingY padding={"2vh"} />
+          <h1>Chesstats Results</h1>
         </Container>
         <Grid container>
           <Grid item xs={6} sm={6} md={1}>
