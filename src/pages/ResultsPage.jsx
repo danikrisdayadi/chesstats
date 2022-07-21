@@ -102,8 +102,8 @@ function ResultsPage() {
         <Container align="center">
           <h1>Chesstats Results</h1>
         </Container>
-        <Grid container>
-          <Grid item xs={6} sm={6} md={1}>
+        <Grid container rowSpacing={3}>
+          <Grid item xs={2} sm={3} md={1}>
             <Stack>
               <PaddingY padding={"15vh"} />
               <div className="data-list">
@@ -123,14 +123,23 @@ function ResultsPage() {
               </div>
             </Stack>
           </Grid>
-          <Grid item xs={6} sm={6} md={3}>
+          <Grid item xs={5} sm={4} md={3}>
             <ProfileStack
               apiData={apiData.currUserData}
               timeControl={timeControl}
               profilePicture={profilePicture[0]}
             />
           </Grid>
-          <Grid item xs={6} sm={6} md={4} align="center">
+          <Grid
+            item
+            xs={0}
+            sm={0}
+            md={4}
+            align="center"
+            sx={{
+              display: { xs: "none", md: "block" },
+            }}
+          >
             <div className="chart-container">
               <ResultsRadarChart
                 users={[apiData.currUserData, apiData.otherUserData]}
@@ -152,14 +161,14 @@ function ResultsPage() {
               );
             })}
           </Grid>
-          <Grid item xs={6} sm={6} md={3}>
+          <Grid item xs={5} sm={4} md={3}>
             <ProfileStack
               apiData={apiData.otherUserData}
               timeControl={timeControl}
               profilePicture={profilePicture[1]}
             />
           </Grid>
-          <Grid item xs={6} sm={6} md={1}>
+          <Grid item xs={12} sm={12} md={1}>
             <Stack
               direction="column"
               spacing={2}
