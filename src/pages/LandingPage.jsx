@@ -9,19 +9,27 @@ function LandingPage() {
   const navigate = useNavigate();
   const featuredAccounts = [
     {
-      username: "hikaru",
+      profilePicture:
+        "https://images.chesscomfiles.com/uploads/v1/user/15448422.90503d66.200x200o.f323efa57fd0.jpeg",
+      username: "Hikaru",
       name: "Hikaru Nakamura",
     },
     {
-      username: "levy",
+      profilePicture:
+        "https://images.chesscomfiles.com/uploads/v1/user/33945736.5f6fc770.200x200o.23a404f808f9.jpeg",
+      username: "GothamChess",
       name: "Levy Rozman",
     },
     {
-      username: "carlsen",
+      profilePicture:
+        "https://images.chesscomfiles.com/uploads/v1/user/3889224.063b7e6f.200x200o.1c673340f1d1.jpeg",
+      username: "MagnusCarlsen",
       name: "Magnus Carlsen",
     },
     {
-      username: "botez",
+      profilePicture:
+        "https://images.chesscomfiles.com/uploads/v1/user/28583276.26b0cd3b.160x160o.fcbeec9a680e.jpeg",
+      username: "AlexandraBotez",
       name: "Andrea Botez",
     },
   ];
@@ -59,12 +67,14 @@ function LandingPage() {
           <Grid container>
             {featuredAccounts.map((account, index) => (
               <Grid item xs={6} md={3} key={index}>
-                <AccountButton onClick={() => navigate("/compare")}>
+                <AccountButton
+                  onClick={() => navigate(`/share/${account.username}`)}
+                >
                   <Stack alignItems="center" className="stack">
                     <Avatar
                       alt={account.name}
-                      src="/static/images/avatar/1.jpg"
-                      sx={{ width: "60px", height: "60px" }}
+                      src={`${account.profilePicture}`}
+                      sx={{ width: "100px", height: "100px" }}
                     />
                     <p>{account.name}</p>
                   </Stack>
