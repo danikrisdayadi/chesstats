@@ -44,8 +44,9 @@ function CopyToClipboard({ text }) {
       </Grid>
       <Snackbar
         open={copyState}
-        autoHideDuration={6000}
+        autoHideDuration={2000}
         onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       >
         <Alert
           onClose={handleCloseSnackbar}
