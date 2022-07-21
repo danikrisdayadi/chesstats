@@ -3,13 +3,6 @@ import { StyledEngineProvider } from '@mui/material/styles';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { CookiesProvider } from 'react-cookie';
 import { useCookies } from "react-cookie";
-import ComparePage from './pages/ComparePage';
-import LandingPage from './pages/LandingPage';
-import Error404Page from './pages/Error404Page';
-import NavigationBar from './components/NavigationBar';
-import "./App.scss";
-import SharePage from './pages/SharePage';
-import ResultsPage from './pages/ResultsPage';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -22,7 +15,17 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+
+import ComparePage from './pages/ComparePage';
+import LandingPage from './pages/LandingPage';
+import Error404Page from './pages/Error404Page';
+import NavigationBar from './components/NavigationBar';
+import SharePage from './pages/SharePage';
+import ResultsPage from './pages/ResultsPage';
 import CompareOthersPage from './pages/CompareOthersPage';
+import AboutPage from './pages/AboutPage';
+import "./App.scss";
+
 
 ChartJS.register(
   RadialLinearScale,
@@ -54,6 +57,7 @@ function App() {
               <Route path="/share/:sharedUsername" element={cookies.username ? <Navigate to={`${cookies.username}`} replace /> : <ComparePage />} />
               <Route path="/others" element={< CompareOthersPage />} />
               <Route path="/relogin" element={<ComparePage />} />
+              <Route path="/about" element={<AboutPage />} />
               <Route path="*" element={<Error404Page />} />
             </Routes>
           </BrowserRouter>
