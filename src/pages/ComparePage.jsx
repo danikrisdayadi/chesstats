@@ -56,11 +56,23 @@ function ComparePage() {
         <Paper elevation={5} align="center" className="username-box">
           <PaddingY padding={"3vh"} />
           <img src="/chesstats_navbar_logo.png" alt="logo" className="logo" />
-          <h2>Enter Chess.com Username</h2>
-          <p>
-            We noticed that we do not have your chess.com data. Please input
-            your chess.com username below to continue
-          </p>
+          {cookies.username ? (
+            <>
+              <h2>Welcome Back!</h2>
+              <p>
+                Please confirm your username below or enter a new one you would
+                like to use!
+              </p>
+            </>
+          ) : (
+            <>
+              <h2>Enter Chess.com Username</h2>
+              <p>
+                We noticed that we do not have your chess.com data. Please input
+                your chess.com username below to start comparing!
+              </p>
+            </>
+          )}
           <PaddingY padding={"1vh"} />
           <Container maxWidth="md">
             <Grid container columnSpacing={1}>
@@ -81,7 +93,7 @@ function ComparePage() {
                     control={
                       <Checkbox checked={checked} onChange={handleChecked} />
                     }
-                    label="Remember me"
+                    label="Remember username"
                   />
                 </FormGroup>
               </Grid>
@@ -90,7 +102,7 @@ function ComparePage() {
                   sx={{ padding: "15px", width: "100%" }}
                   onClick={handleClick}
                 >
-                  Submit
+                  {cookies.username ? "Confirm" : "Submit"}
                 </SuccessButton>
               </Grid>
               <Grid item xs={0} sm={1} />

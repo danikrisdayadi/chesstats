@@ -21,6 +21,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import CompareOthersPage from './pages/CompareOthersPage';
 
 ChartJS.register(
   RadialLinearScale,
@@ -44,9 +45,10 @@ function App() {
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/compare" element={<ComparePage />} />
-              <Route path="/share/:sharedUsername" element={<ComparePage />} />
               <Route path="/compare/:username" element={<SharePage />} />
               <Route path="/compare/:username/:otherUsername" element={<ResultsPage />} />
+              <Route path="/share/:sharedUsername" element={<ComparePage />} />
+              <Route path="/others" element={<CompareOthersPage />} />
               <Route path="*" element={<Error404Page />} />
             </Routes>
           </BrowserRouter>

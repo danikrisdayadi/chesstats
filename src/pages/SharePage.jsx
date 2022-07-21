@@ -35,8 +35,12 @@ function SharePage() {
           <Container maxWidth="md">
             <PaddingY padding={"3vh"} />
             <img src="/chesstats_navbar_logo.png" alt="logo" className="logo" />
-            <h2>Start Comparing!</h2>
-            <p>
+            <h2 style={{ marginBottom: 0 }}>Hi {username}!</h2>
+            <div className="link">
+              <a href="/compare">Not you?</a>
+            </div>
+
+            <p style={{ width: "100%" }}>
               Compare by sharing your chesstats link or input another person's
               chess.com username!
             </p>
@@ -77,7 +81,6 @@ function SharePage() {
                 </Grid>
               </Grid>
             </Container>
-
             <PaddingY padding={"5vh"} />
           </Container>
         </Paper>
