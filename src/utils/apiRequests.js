@@ -23,17 +23,20 @@ export async function getProfilePicture(currUsername, otherUsername) {
   try {
     const currProfile = await getProfile(currUsername);
     const otherProfile = await getProfile(otherUsername);
-    console.log(otherProfile);
+
     return [currProfile?.avatar, otherProfile?.avatar];
   } catch (err) {
     console.error(err);
     return err;
   }
 }
+
 async function getChessData(username) {
   try {
     const response = await fetch(`https://api.chess.com/pub/player/${username}/stats`);
-    return await response.json();
+    const jsonResponse = await response.json();
+
+    return jsonResponse;
   } catch (error) {
     return error;
   }
@@ -42,7 +45,8 @@ async function getChessData(username) {
 async function getProfile(username) {
   try {
     const response = await fetch(`https://api.chess.com/pub/player/${username}`);
-    return await response.json();
+    const jsonResponse = await response.json();
+    return jsonResponse;
   } catch (error) {
     return error;
   }

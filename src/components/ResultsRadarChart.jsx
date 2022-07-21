@@ -10,7 +10,7 @@ function ResultsRadarChart({
     [0, 0, 0, 0, 0],
   ],
 }) {
-  const chartLabels = ["Current", "Highest", "W/L", "Total Games", "Tactics"];
+  const chartLabels = ["Current", "Highest", "Win %", "Total Games", "Tactics"];
 
   const data = {
     labels: chartLabels,

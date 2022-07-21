@@ -61,7 +61,6 @@ function ResultsPage() {
   const downloadScreenshot = () => takeScreenShot(ref.current).then(download);
   const navigate = useNavigate();
 
-  console.log(profilePicture);
   return (
     <Container maxWidth="xl">
       <Dialog
@@ -115,7 +114,7 @@ function ResultsPage() {
                 <p>Highest Rating</p>
               </div>
               <div className="data-list">
-                <p>Win/Loss %</p>
+                <p>Win %</p>
               </div>
               <div className="data-list">
                 <p>Total Games</p>
