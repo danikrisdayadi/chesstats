@@ -47,11 +47,12 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<LandingPage />} />
-              <Route path="/compare" element={cookies.username ? <Navigate to={`/compare/${cookies.username}`} /> : <ComparePage />} />
+              <Route path="/compare" element={cookies.username ? <Navigate to={`/compare/${cookies.username}`} replace /> : <ComparePage />} />
               <Route path="/compare/:username" element={<SharePage />} />
               <Route path="/compare/:username/:otherUsername" element={<ResultsPage />} />
-              <Route path="/share/:sharedUsername" element={<ComparePage />} />
-              <Route path="/others" element={<CompareOthersPage />} />
+              <Route path="/share/:otherUsername/:username" element={<ResultsPage />} />
+              <Route path="/share/:sharedUsername" element={cookies.username ? <Navigate to={`${cookies.username}`} replace /> : <ComparePage />} />
+              <Route path="/others" element={< CompareOthersPage />} />
               <Route path="/relogin" element={<ComparePage />} />
               <Route path="*" element={<Error404Page />} />
             </Routes>

@@ -58,10 +58,7 @@ function ComparePage() {
           <img src="/chesstats_navbar_logo.png" alt="logo" className="logo" />
           {cookies.username ? (
             <>
-              <p>
-                Please enter a new username or confirm your previous saved
-                username
-              </p>
+              <p>Confirm your username or enter a new username!</p>
             </>
           ) : (
             <>
