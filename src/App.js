@@ -25,6 +25,7 @@ import ResultsPage from './pages/ResultsPage';
 import CompareOthersPage from './pages/CompareOthersPage';
 import AboutPage from './pages/AboutPage';
 import "./App.scss";
+import LoadingAnimation from './components/LoadingAnimation';
 
 
 ChartJS.register(
@@ -49,7 +50,7 @@ function App() {
           <NavigationBar />
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<LandingPage />} />
+              <Route path="/" element={<LoadingAnimation />} />
               <Route path="/compare" element={cookies.username ? <Navigate to={`/compare/${cookies.username}`} replace /> : <ComparePage />} />
               <Route path="/compare/:username" element={<SharePage />} />
               <Route path="/compare/:username/:otherUsername" element={<ResultsPage />} />
