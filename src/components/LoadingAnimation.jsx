@@ -1,16 +1,13 @@
-import { Box } from "@mui/material";
-import { React, useState } from "react";
 import "./LoadingAnimation.scss";
 
 function LoadingAnimation() {
   return (
-    <div>
+    <div class="parent">
       <div class="artboard">
         <div class="domino">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div className="domino-1"></div>
+          <div className="domino-2"> </div>
+          <div className="domino-3"></div>
         </div>
       </div>
     </div>
