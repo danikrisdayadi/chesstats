@@ -1,5 +1,6 @@
 @use "../styles/colors";
-$duration: 6s;
+$duration: 3s;
+$delay: 0.75;
 
 //mixins
 @mixin flex() {
@@ -56,22 +57,76 @@ $duration: 6s;
 
 .domino-1 {
   @include square;
-  animation: domino-effect-1 $duration infinite ease-in-out;
+  animation: domino-1 $duration infinite ease-in-out;
   background: colors.$theme;
 }
 
 .domino-2 {
   @include square;
-  animation: domino-effect-2 $duration infinite ease-in-out;
-  // animation-delay: #{0.6 * 2}s;
+  animation: domino-2 $duration infinite ease-in-out;
+  // animation-delay: #{$delay * 1}s;
   background: colors.$cta;
 }
 
 .domino-3 {
   @include square;
-  animation: domino-effect-3 $duration infinite ease-in-out;
-  // animation-delay: #{0.6 * 3}s;
+  animation: domino-3 $duration infinite ease-in-out;
+  // animation-delay: #{$delay * 2}s;
   background: colors.$body;
+}
+
+@keyframes domino-1 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(50px, 0px);
+  }
+  50% {
+    transform: translate(50px, 50px);
+  }
+  75% {
+    transform: translate(0px, 50px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes domino-2 {
+  0% {
+    transform: translate(50px, 0px);
+  }
+  25% {
+    transform: translate(50px, 50px);
+  }
+  50% {
+    transform: translate(0px, 50px);
+  }
+  75% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(50px, 0px);
+  }
+}
+
+@keyframes domino-3 {
+  0% {
+    transform: translate(50px, 50px);
+  }
+  25% {
+    transform: translate(0px, 50px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  75% {
+    transform: translate(50px, 0px);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
 }
 
 //animation
