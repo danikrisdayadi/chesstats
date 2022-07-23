@@ -17,4 +17,7 @@
 .link {
   margin-top: 10px;
   width: 100%;
+  a {
+    color: colors.$theme;
+  }
 }

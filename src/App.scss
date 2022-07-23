@@ -40,6 +40,8 @@ p {
 }
 
 a {
+  font-family: "Roboto";
+  font-size: clamp(14px, 4vw, 18px);
   text-decoration: none;
   transition: 0.3s;
 }
