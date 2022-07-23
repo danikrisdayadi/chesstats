@@ -39,7 +39,7 @@ function LandingPage() {
       <Container maxWidth="xl" align="center" className="main-container">
         <PaddingY padding={"5vh"} />
 
-        <h1>Compare your Chess.com Statistics with others!</h1>
+        <h1>Compare your Chess Statistics with others!</h1>
         <Box>
           <p>
             Chesstats allows you to compare basic statistics of your Chess.com

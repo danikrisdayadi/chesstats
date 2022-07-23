@@ -60,11 +60,11 @@ function ComparePage() {
             <img src="/chesstats_navbar_logo.png" alt="logo" className="logo" />
             {cookies.username ? (
               <>
-                <p>Confirm your username or enter a new username!</p>
+                <p>Confirm your previous username or enter a new username!</p>
               </>
             ) : (
               <>
-                <h2>Enter Chess.com Username</h2>
+                <h2>Welcome to Chesstats!</h2>
                 <p>
                   We noticed that we do not have your chess.com data. Please
                   input your chess.com username below to start comparing!
