@@ -59,7 +59,6 @@ function AboutPage() {
           </Button>
         </Tooltip>
       </Stack>
-
       <PaddingY padding={"3vh"} />
     </Container>
   );
