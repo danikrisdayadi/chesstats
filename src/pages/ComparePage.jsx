@@ -8,6 +8,7 @@ import {
   FormGroup,
   FormControlLabel,
   Checkbox,
+  Grow,
 } from "@mui/material";
 import { PaddingY } from "../components/Spacing";
 import { SuccessButton } from "../utils/utils";
@@ -53,59 +54,61 @@ function ComparePage() {
       className="grid"
     >
       <Grid item xs={11} sm={8} md={6}>
-        <Paper elevation={5} align="center" className="username-box">
-          <PaddingY padding={"3vh"} />
-          <img src="/chesstats_navbar_logo.png" alt="logo" className="logo" />
-          {cookies.username ? (
-            <>
-              <p>Confirm your username or enter a new username!</p>
-            </>
-          ) : (
-            <>
-              <h2>Enter Chess.com Username</h2>
-              <p>
-                We noticed that we do not have your chess.com data. Please input
-                your chess.com username below to start comparing!
-              </p>
-            </>
-          )}
-          <PaddingY padding={"1vh"} />
-          <Container maxWidth="md">
-            <Grid container columnSpacing={1}>
-              <Grid item xs={0} sm={1} />
-              <Grid item xs={8} sm={8}>
-                <TextField
-                  fullWidth
-                  id="outlined-basic"
-                  label="Username"
-                  variant="outlined"
-                  error={!validity}
-                  helperText={helperText}
-                  defaultValue={username}
-                  onChange={event => setUsername(event.target.value)}
-                />
-                <FormGroup>
-                  <FormControlLabel
-                    control={
-                      <Checkbox checked={checked} onChange={handleChecked} />
-                    }
-                    label="Remember username"
+        <Grow in={true} timeout={500}>
+          <Paper elevation={5} align="center" className="username-box">
+            <PaddingY padding={"3vh"} />
+            <img src="/chesstats_navbar_logo.png" alt="logo" className="logo" />
+            {cookies.username ? (
+              <>
+                <p>Confirm your username or enter a new username!</p>
+              </>
+            ) : (
+              <>
+                <h2>Enter Chess.com Username</h2>
+                <p>
+                  We noticed that we do not have your chess.com data. Please
+                  input your chess.com username below to start comparing!
+                </p>
+              </>
+            )}
+            <PaddingY padding={"1vh"} />
+            <Container maxWidth="md">
+              <Grid container columnSpacing={1}>
+                <Grid item xs={0} sm={1} />
+                <Grid item xs={8} sm={8}>
+                  <TextField
+                    fullWidth
+                    id="outlined-basic"
+                    label="Username"
+                    variant="outlined"
+                    error={!validity}
+                    helperText={helperText}
+                    defaultValue={username}
+                    onChange={event => setUsername(event.target.value)}
                   />
-                </FormGroup>
+                  <FormGroup>
+                    <FormControlLabel
+                      control={
+                        <Checkbox checked={checked} onChange={handleChecked} />
+                      }
+                      label="Remember username"
+                    />
+                  </FormGroup>
+                </Grid>
+                <Grid item xs={3} sm={2}>
+                  <SuccessButton
+                    sx={{ padding: "15px", width: "100%" }}
+                    onClick={handleClick}
+                  >
+                    {cookies.username ? "Confirm" : "Submit"}
+                  </SuccessButton>
+                </Grid>
+                <Grid item xs={0} sm={1} />
               </Grid>
-              <Grid item xs={3} sm={2}>
-                <SuccessButton
-                  sx={{ padding: "15px", width: "100%" }}
-                  onClick={handleClick}
-                >
-                  {cookies.username ? "Confirm" : "Submit"}
-                </SuccessButton>
-              </Grid>
-              <Grid item xs={0} sm={1} />
-            </Grid>
-          </Container>
-          <PaddingY padding={"5vh"} />
-        </Paper>
+            </Container>
+            <PaddingY padding={"5vh"} />
+          </Paper>
+        </Grow>
       </Grid>
     </Grid>
   );

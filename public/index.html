@@ -37,6 +37,7 @@
         padding: 0;
         height: 100vh;
         background-color: #f0ead2;
+        animation: fadeInAnimation ease 1s;
       }
 
       .container {
@@ -78,6 +79,15 @@
         position: absolute;
         animation: domino-3 3s infinite ease-in-out;
         background-color: #a98467;
+      }
+
+      @keyframes fadeInAnimation {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
       }
 
       @keyframes domino-1 {

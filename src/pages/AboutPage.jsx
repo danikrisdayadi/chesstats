@@ -5,7 +5,7 @@ import "./AboutPage.scss";
 
 function AboutPage() {
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" className="about-containers">
       <h1>About Chesstats</h1>
       <p>
         Chesstats is a platform designed for chess.com users to be able to

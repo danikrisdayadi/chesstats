@@ -1,3 +1,10 @@
+@import "./LandingPage.scss";
+
+.about-containers {
+  @include animation;
+  align-items: center;
+}
+
 .profile-img {
   width: 40%;
 }
