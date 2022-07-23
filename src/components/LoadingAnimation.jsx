@@ -2,11 +2,12 @@ import "./LoadingAnimation.scss";
 
 function LoadingAnimation() {
   return (
-    <div class="artboard">
-      <div class="domino">
-        <div className="domino-1"></div>
-        <div className="domino-2"> </div>
-        <div className="domino-3"></div>
+    <div class="container">
+      <h2>Calculating results...</h2>
+      <div class="loading-logo">
+        <div className="square-1"></div>
+        <div className="square-2"> </div>
+        <div className="square-3"></div>
       </div>
     </div>
   );

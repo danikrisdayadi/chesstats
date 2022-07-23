@@ -48,7 +48,6 @@ function App() {
       spinner.style.display = "none";
       setLoading(false);
     }, 2000);
-
   }
 
   return (

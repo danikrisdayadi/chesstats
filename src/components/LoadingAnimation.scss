@@ -5,6 +5,7 @@ $delay: 0.75;
 //mixins
 @mixin flex() {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -16,39 +17,39 @@ $delay: 0.75;
   position: absolute;
 }
 
-.artboard {
+.container {
   @include flex();
   width: 100%;
   height: 92vh;
   position: absolute;
 }
 
-.domino {
+.loading-logo {
   height: 100px;
   width: 100px;
 }
 
-.domino-1 {
+.square-1 {
   @include square;
-  animation: domino-1 $duration infinite ease-in-out;
+  animation: square-1 $duration infinite ease-in-out;
   background: colors.$theme;
 }
 
-.domino-2 {
+.square-2 {
   @include square;
-  animation: domino-2 $duration infinite ease-in-out;
+  animation: square-2 $duration infinite ease-in-out;
   // animation-delay: #{$delay * 1}s;
   background: colors.$cta;
 }
 
-.domino-3 {
+.square-3 {
   @include square;
-  animation: domino-3 $duration infinite ease-in-out;
+  animation: square-3 $duration infinite ease-in-out;
   // animation-delay: #{$delay * 2}s;
   background: colors.$body;
 }
 
-@keyframes domino-1 {
+@keyframes square-1 {
   0% {
     transform: translate(0px, 0px);
   }
@@ -66,7 +67,7 @@ $delay: 0.75;
   }
 }
 
-@keyframes domino-2 {
+@keyframes square-2 {
   0% {
     transform: translate(50px, 0px);
   }
@@ -84,7 +85,7 @@ $delay: 0.75;
   }
 }
 
-@keyframes domino-3 {
+@keyframes square-3 {
   0% {
     transform: translate(50px, 50px);
   }
@@ -103,7 +104,7 @@ $delay: 0.75;
 }
 
 //animation
-@keyframes domino-effect-1 {
+@keyframes square-effect-1 {
   0%,
   16.67% {
     transform: translate(0px, 0px);
@@ -125,7 +126,7 @@ $delay: 0.75;
   }
 }
 
-@keyframes domino-effect-2 {
+@keyframes square-effect-2 {
   0%,
   8.33% {
     transform: translate(50px, 0px);
@@ -148,7 +149,7 @@ $delay: 0.75;
   }
 }
 
-@keyframes domino-effect-3 {
+@keyframes square-effect-3 {
   0% {
     transform: translate(50px, 50px);
   }
