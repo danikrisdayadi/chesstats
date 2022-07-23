@@ -88,11 +88,19 @@ function ResultsPage() {
               <PaddingY padding={"1vh"} />
 
               <Stack alignItems="center" spacing={3}>
-                <img
-                  src={image}
-                  alt={"ScreenShot"}
-                  className="screenshot-img"
-                ></img>
+                {image ? (
+                  <img
+                    src={image}
+                    alt={"ScreenShot"}
+                    className="screenshot-img"
+                  ></img>
+                ) : (
+                  <div class="loading-logo">
+                    <div className="square-1"></div>
+                    <div className="square-2"> </div>
+                    <div className="square-3"></div>
+                  </div>
+                )}
                 <NormalButton
                   sx={{ padding: "10px 40px" }}
                   onClick={downloadScreenshot}
@@ -101,7 +109,7 @@ function ResultsPage() {
                 </NormalButton>
               </Stack>
               <PaddingY padding={"1vh"} />
-              <Divider className="divider">or</Divider>
+              <Divider className="screenshot-divider">or</Divider>
               <PaddingY padding={"1vh"} />
               <CopyToClipboard text={`${window.location.href}`} />
               <PaddingY padding={"2vh"} />

@@ -2,7 +2,7 @@ import "./LoadingAnimation.scss";
 
 function LoadingAnimation() {
   return (
-    <div class="container">
+    <div class="animation-container">
       <h2>Calculating results...</h2>
       <div class="loading-logo">
         <div className="square-1"></div>

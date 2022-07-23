@@ -3,7 +3,7 @@ $duration: 3s;
 $delay: 0.75;
 
 //mixins
-@mixin flex() {
+@mixin animation-flex() {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,8 +17,8 @@ $delay: 0.75;
   position: absolute;
 }
 
-.container {
-  @include flex();
+.animation-container {
+  @include animation-flex();
   width: 100%;
   height: 92vh;
   position: absolute;
