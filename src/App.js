@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { CookiesProvider } from 'react-cookie';
@@ -25,8 +25,6 @@ import ResultsPage from './pages/ResultsPage';
 import CompareOthersPage from './pages/CompareOthersPage';
 import AboutPage from './pages/AboutPage';
 import "./App.scss";
-import LoadingAnimation from './components/LoadingAnimation';
-
 
 ChartJS.register(
   RadialLinearScale,
