@@ -28,7 +28,9 @@ function ComparePage() {
   const handleClick = () => {
     if (username.length > 0) {
       if (checked) {
-        setCookie("username", username, { path: "/" });
+        let expiryDate = new Date();
+        expiryDate.setMonth(expiryDate.getMonth() + 1);
+        setCookie("username", username, { path: "/", expiryDate });
       }
 
       if (sharedUsername) {
