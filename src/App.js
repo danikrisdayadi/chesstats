@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { CookiesProvider } from 'react-cookie';
@@ -42,15 +42,25 @@ ChartJS.register(
 
 function App() {
   const [cookies] = useCookies(["username"]);
+  const spinner = document.getElementById('spinner');
+  const [loading, setLoading] = useState(true);
+
+  if (spinner) {
+    setTimeout(() => {
+      spinner.style.display = "none";
+      setLoading(false);
+    }, 2000);
+
+  }
 
   return (
-    <div className="app">
+    !loading && (<div className="app">
       <StyledEngineProvider injectFirst>
         <CookiesProvider>
           <NavigationBar />
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<LoadingAnimation />} />
+              <Route path="/" element={<LandingPage />} />
               <Route path="/compare" element={cookies.username ? <Navigate to={`/compare/${cookies.username}`} replace /> : <ComparePage />} />
               <Route path="/compare/:username" element={<SharePage />} />
               <Route path="/compare/:username/:otherUsername" element={<ResultsPage />} />
@@ -65,6 +75,7 @@ function App() {
         </CookiesProvider>
       </StyledEngineProvider>
     </div >
+    )
   );
 }
 

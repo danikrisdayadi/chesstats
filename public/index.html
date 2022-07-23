@@ -31,19 +31,117 @@
       rel="stylesheet"
     />
     <title>Chesstats</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-color: #f0ead2;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: absolute;
+      }
+
+      .domino {
+        height: 100px;
+        width: 100px;
+      }
+
+      .domino-1 {
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        position: absolute;
+        animation: domino-1 3s infinite ease-in-out;
+        background-color: #6c584c;
+      }
+
+      .domino-2 {
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        position: absolute;
+        animation: domino-2 3s infinite ease-in-out;
+        background-color: #adc178;
+      }
+
+      .domino-3 {
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        position: absolute;
+        animation: domino-3 3s infinite ease-in-out;
+        background-color: #a98467;
+      }
+
+      @keyframes domino-1 {
+        0% {
+          transform: translate(0px, 0px);
+        }
+        25% {
+          transform: translate(50px, 0px);
+        }
+        50% {
+          transform: translate(50px, 50px);
+        }
+        75% {
+          transform: translate(0px, 50px);
+        }
+        100% {
+          transform: translate(0px, 0px);
+        }
+      }
+
+      @keyframes domino-2 {
+        0% {
+          transform: translate(50px, 0px);
+        }
+        25% {
+          transform: translate(50px, 50px);
+        }
+        50% {
+          transform: translate(0px, 50px);
+        }
+        75% {
+          transform: translate(0px, 0px);
+        }
+        100% {
+          transform: translate(50px, 0px);
+        }
+      }
+
+      @keyframes domino-3 {
+        0% {
+          transform: translate(50px, 50px);
+        }
+        25% {
+          transform: translate(0px, 50px);
+        }
+        50% {
+          transform: translate(0px, 0px);
+        }
+        75% {
+          transform: translate(50px, 0px);
+        }
+        100% {
+          transform: translate(50px, 50px);
+        }
+      }
+    </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="spinner" class="container">
+      <div class="domino">
+        <div class="domino-1"></div>
+        <div class="domino-2"></div>
+        <div class="domino-3"></div>
+      </div>
+    </div>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
